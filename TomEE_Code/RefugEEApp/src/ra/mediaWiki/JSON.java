@@ -39,10 +39,21 @@ public class JSON {
     }
 
     private void setTitle() {
-        this.title = this.parse.getJSONObject("parse");
+        try {
+            this.title = this.parse.getJSONObject("parse");
+        } catch (RuntimeException ex)
+        {
+            ;
+        }
+
     }
 
     private void setText() {
-        this.text = this.title.getJSONObject("text");
+        try {
+            this.text = this.title.getJSONObject("text");
+        } catch (RuntimeException ex)
+            {
+                ;
+            }
     }
 }
