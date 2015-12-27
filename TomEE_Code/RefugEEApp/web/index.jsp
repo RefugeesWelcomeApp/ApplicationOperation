@@ -9,6 +9,6 @@
     <h2>Lade MediaWiki - Content via JSON</h2>
     <h5><c:out value="${requestScope.title}"/></h5>
     <p> <c:out value="${requestScope.text}" escapeXml="false"/></p>
-    <div><img src="resources/img/test/flag_germany.jpg"></div>
+    <div><img src="resources/img/flag_germany.jpg"></div>
 </form>
 <jsp:include page="WEB-INF/fragments/footer.jspf"/>
