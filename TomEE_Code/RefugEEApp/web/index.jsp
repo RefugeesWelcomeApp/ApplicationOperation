@@ -3,12 +3,10 @@
 <jsp:include page="WEB-INF/fragments/htmlHead.jspf"/>
 <jsp:include page="WEB-INF/fragments/header.jspf"/>
 <jsp:include page="WEB-INF/fragments/menu.jspf"/>
-<jsp:include page="WEB-INF/fragments/slider.jspf"/>
-<h1>HALLOOOOOOO</h1>
+<!--<jsp:include page="WEB-INF/fragments/slider.jspf"/><-->
 <form action="getMediaWikiArticle" method="get">
-    <h2>Lade MediaWiki - Content via JSON</h2>
-    <h5><c:out value="${requestScope.title}"/></h5>
-    <p> <c:out value="${requestScope.text}" escapeXml="false"/></p>
-    <div><img src="resources/img/flag_germany.jpg"></div>
+    <h2><c:out value="${requestScope.title}"/></h2>
+    <c:out value="${requestScope.text}" escapeXml="false"/>
+    <!--<div><img src="resources/img/flag_germany.jpg"></div>-->
 </form>
 <jsp:include page="WEB-INF/fragments/footer.jspf"/>
