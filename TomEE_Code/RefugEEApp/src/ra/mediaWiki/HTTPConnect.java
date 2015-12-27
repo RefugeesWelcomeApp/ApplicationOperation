@@ -40,9 +40,14 @@ public class HTTPConnect {
 
     private void setContent() throws IOException {
         this.content = IOUtils.toString(this.is, "UTF-8");
+        fixContentWikiURLs();
     }
 
     public String getContent() {
         return content;
+    }
+
+    private void fixContentWikiURLs(){
+        content = content.replaceAll("\\/media_wiki\\/","\\/w\\/");
     }
 }
