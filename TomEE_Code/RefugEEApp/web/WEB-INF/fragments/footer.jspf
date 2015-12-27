@@ -1,0 +1,25 @@
+<footer class="row">
+    <div class="large-12 columns"><hr>
+        <div class="row">
+            <div class="large-6 columns">
+                <p>&copy; Copyright no one </p>
+            </div>
+
+            <div class="large-6 small-12 columns">
+                <ul class="inline-list right">
+                    <li><a href="#">Impressum</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+<script src="js/vendor/jquery.js"></script>
+<script src="js/foundation.min.js"></script>
+<script>
+    $(document).foundation();
+</script>
+
+</body>
+</html>

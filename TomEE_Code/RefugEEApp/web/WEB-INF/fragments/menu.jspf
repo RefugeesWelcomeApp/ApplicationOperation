@@ -1,0 +1,85 @@
+<!--Menu-->
+<nav class="top-bar" data-topbar role="navigation">
+    <ul class="title-area">
+        <li class="name">
+            <h1><a href="#">Startseite</a></h1>
+        </li>
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <section class="top-bar-section">
+        <!-- Left Nav Section -->
+        <ul class="left">
+            <li class="divider"></li>
+            <li class="has-dropdown">
+                <a href="#">Formulare</a>
+                <ul class="dropdown">
+                    <li><a href="#">Erstantrag</a></li>
+                    <li><a href="#">Registrierung</a></li>
+                    <li class="has-dropdown">
+                        <a href="#" class="">weitere Formulare</a>
+                        <ul class="dropdown">
+                            <li><a href="#">Versicherung</a></li>
+                            <li><a href="#">Arbeit</a></li>
+                            <li><a href="#">etc...</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Was passiert bei Ablehnung?</a></li>
+                </ul>
+            </li>
+            <li class="divider"></li>
+            <li class="has-dropdown">
+                <a href="#">Das Leben in Deutschland</a>
+                <ul class="dropdown">
+                    <li><a href="#">Rechtliches 1*1</a></li>
+                    <li><a href="#">StVO</a></li>
+                    <li><a href="#">wichtige Nummern</a></li>
+                    <li><a href="#">schwarzes Brett</a></li>
+                    <li><a href="#">Knigge</a></li>
+                    <li><a href="#">allg. Beschreibung Deutsche</a></li>
+                    <li><a href="#">Umrechnungsrechner (W&auml;hrung)</a></li>
+                    <li><a href="#">Gesundheitsstandard bzw. Besonderheiten</a></li>
+                    <li><a href="#">Bildung Sprache Arbeit Wohnen</a></li>
+                </ul>
+            </li>
+            <li class="divider"></li>
+            <li class="has-dropdown">
+                <a href="#">Wo finde ich was?</a>
+                <ul class="dropdown">
+                    <li class="has-dropdown">
+                        <a href="#" class="">B&uuml;cher</a>
+                        <ul class="dropdown">
+                            <li><a href="#">Zeitungen</a></li>
+                            <li><a href="#">Fachliteratur</a></li>
+                            <li><a href="#">etc...</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Essen</a></li>
+                    <li><a href="#">Technik</a></li>
+                    <li><a href="#">Werkzeuge</a></li>
+                    <li><a href="#">Hygiene</a></li>
+                    <li><a href="#">etc</a></li>
+
+
+                </ul>
+            </li>
+            <li class="divider"></li>
+            <li><a href="#">In meiner N&auml;he</a></li>
+        </ul>
+
+        <!-- Right Nav Section -->
+        <ul class="right">
+            <li class="has-form">
+                <div class="row collapse">
+                    <div class="large-8 small-9 columns">
+                        <input type="text" placeholder="Find Stuff">
+                    </div>
+                    <div class="large-4 small-3 columns">
+                        <a href="#" class="alert button expand">Search</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </section>
+</nav>
