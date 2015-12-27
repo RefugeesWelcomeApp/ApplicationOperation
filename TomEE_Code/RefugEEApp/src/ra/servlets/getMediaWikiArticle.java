@@ -16,13 +16,20 @@ public class getMediaWikiArticle extends HttpServlet  {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        HTTPConnect con = new HTTPConnect("https://ddc.derpy.ws/media_wiki/DevTest/de");
+        String WikiURL = request.getRequestURI().replaceFirst("w/","");
+        if (WikiURL.contentEquals("/"))
+            WikiURL = "/Hauptseite/de";
+        HTTPConnect con = new HTTPConnect("https://ddc.derpy.ws/media_wiki"+ WikiURL);
 
-        JSON json = new JSON(con.getContent());
+        try {
+            JSON json = new JSON(con.getContent());
 
-        request.setAttribute("title", json.getTitleStr());
-        request.setAttribute("text", json.getTextStr());
-
+            request.setAttribute("title", json.getTitleStr());
+            request.setAttribute("text", json.getTextStr());
+            System.out.println(json.getTextStr());
+        }
+        catch (java.lang.NullPointerException ex)
+        {;}
         getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
     }
 }
