@@ -15,44 +15,44 @@ public class URLParser {
     private final static String regExPatternEncodedWithoutLanguage = "^https:\\/\\/\\D+\\.\\D+\\.\\D+\\/media_wiki\\/([A-z0-9\\-:]+)$";
 
     private String url;
-    private String titel;
-    private String language;
+    private String sTitle;
+    private String sLanguage;
 
     public URLParser(String url) {
         int flags = Pattern.MULTILINE | Pattern.UNICODE_CHARACTER_CLASS;
         Pattern pattern = Pattern.compile(regExPatternEncodedWithLanguage, flags);
         Matcher regExMatcher = pattern.matcher(url);
         if (regExMatcher.find()) {
-            this.titel = regExMatcher.group(1);
-            language = regExMatcher.group(2);
-            this.url = decodedStart + this.titel + "/" + language;
+            this.sTitle = regExMatcher.group(1);
+            sLanguage = regExMatcher.group(2);
+            this.url = decodedStart + this.sTitle + "/" + sLanguage;
         }
         else {
             pattern = Pattern.compile(regExPatternEncodedWithoutLanguage, flags);
             regExMatcher = pattern.matcher(url);
             if (regExMatcher.find()) {
-                this.titel = regExMatcher.group(1);
-                language = "";
-                this.url = decodedStart + this.titel;
+                this.sTitle = regExMatcher.group(1);
+                sLanguage = "";
+                this.url = decodedStart + this.sTitle;
             }
             else {
                 pattern = Pattern.compile(regExPatternDecodedWithLanguage, flags);
                 regExMatcher = pattern.matcher(url);
                 if (regExMatcher.find()) {
-                    this.titel = regExMatcher.group(1);
-                    language = regExMatcher.group(2);
-                    this.url = encodedStart + this.titel + "/" + this.language;
+                    this.sTitle = regExMatcher.group(1);
+                    sLanguage = regExMatcher.group(2);
+                    this.url = encodedStart + this.sTitle + "/" + this.sLanguage;
                 } else {
                     pattern = Pattern.compile(regExPatternDecodedWithoutLanguage, flags);
                     regExMatcher = pattern.matcher(url);
                     if (regExMatcher.find()) {
-                        this.titel = regExMatcher.group(1);
-                        language = "";
-                        this.url = encodedStart + this.titel;
+                        this.sTitle = regExMatcher.group(1);
+                        sLanguage = "";
+                        this.url = encodedStart + this.sTitle;
                     } else
                     {
-                        this.language = "";
-                        this.titel="";
+                        this.sLanguage = "";
+                        this.sTitle ="";
                         this.url = "https://ddc.derpy.ws";
                     }
                 }
@@ -65,13 +65,13 @@ public class URLParser {
     }
 
     public String getJSONUrl(){
-        if (this.language.equals(""))
+        if (this.sLanguage.equals(""))
         {
-            return jsonURLStart + this.titel + jsonURLEnde;
+            return jsonURLStart + this.sTitle + jsonURLEnde;
         }
         else
         {
-            return jsonURLStart + this.titel + "/" + this.language + jsonURLEnde;
+            return jsonURLStart + this.sTitle + "/" + this.sLanguage + jsonURLEnde;
         }
     }
 
