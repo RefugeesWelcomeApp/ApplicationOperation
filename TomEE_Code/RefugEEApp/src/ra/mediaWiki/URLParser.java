@@ -9,9 +9,10 @@ public class URLParser {
     private final static String jsonURLStart = "https://ddc.derpy.ws/media_wiki/api.php?action=parse&page=";
     private final static String jsonURLEnde = "&format=json";
 
-    private final static String regExPatternDecoded = "^https:\\/\\/\\D+\\.\\D+\\.\\D+\\/w\\/([A-z0-9]+)\\/([A-z]{2})$";
-    private final static String regExPatternEncoded = "^https:\\/\\/\\D+\\.\\D+\\.\\D+\\/media_wiki\\/([A-z0-9]+)\\/([A-z]{2})$";
-    //private final static String regExPatternEncoded = "^https:\\/\\/\\D+\\.\\D+\\.\\D+\\/media_wiki\\/([A-z]{2}):([A-z0-9]+)$";
+    private final static String regExPatternDecodedWithLanguage = "^https:\\/\\/\\D+\\.\\D+\\.\\D+\\/w\\/([A-z0-9\\-:]+)\\/([A-z]{2})$";
+    private final static String regExPatternDecodedWithoutLanguage = "^https:\\/\\/\\D+\\.\\D+\\.\\D+\\/w\\/([A-z0-9\\-:]+)$";
+    private final static String regExPatternEncodedWithLanguage = "^https:\\/\\/\\D+\\.\\D+\\.\\D+\\/media_wiki\\/([A-z0-9\\-:]+)\\/([A-z]{2})$";
+    private final static String regExPatternEncodedWithoutLanguage = "^https:\\/\\/\\D+\\.\\D+\\.\\D+\\/media_wiki\\/([A-z0-9\\-:]+)$";
 
     private String url;
     private String titel;
@@ -19,24 +20,43 @@ public class URLParser {
 
     public URLParser(String url) {
         int flags = Pattern.MULTILINE | Pattern.UNICODE_CHARACTER_CLASS;
-        Pattern pattern = Pattern.compile(regExPatternEncoded, flags);
+        Pattern pattern = Pattern.compile(regExPatternEncodedWithLanguage, flags);
         Matcher regExMatcher = pattern.matcher(url);
         if (regExMatcher.find()) {
             this.titel = regExMatcher.group(1);
             language = regExMatcher.group(2);
             this.url = decodedStart + this.titel + "/" + language;
         }
-
         else {
-            pattern = Pattern.compile(regExPatternDecoded, flags);
+            pattern = Pattern.compile(regExPatternEncodedWithoutLanguage, flags);
             regExMatcher = pattern.matcher(url);
             if (regExMatcher.find()) {
                 this.titel = regExMatcher.group(1);
-                language = regExMatcher.group(2);
-                this.url = encodedStart + this.titel + "/" + this.language;
+                language = "";
+                this.url = decodedStart + this.titel;
             }
-            else
-                this.url = "https://ddc.derpy.ws";
+            else {
+                pattern = Pattern.compile(regExPatternDecodedWithLanguage, flags);
+                regExMatcher = pattern.matcher(url);
+                if (regExMatcher.find()) {
+                    this.titel = regExMatcher.group(1);
+                    language = regExMatcher.group(2);
+                    this.url = encodedStart + this.titel + "/" + this.language;
+                } else {
+                    pattern = Pattern.compile(regExPatternDecodedWithoutLanguage, flags);
+                    regExMatcher = pattern.matcher(url);
+                    if (regExMatcher.find()) {
+                        this.titel = regExMatcher.group(1);
+                        language = "";
+                        this.url = encodedStart + this.titel;
+                    } else
+                    {
+                        this.language = "";
+                        this.titel="";
+                        this.url = "https://ddc.derpy.ws";
+                    }
+                }
+            }
         }
     }
 
@@ -45,7 +65,14 @@ public class URLParser {
     }
 
     public String getJSONUrl(){
-        return jsonURLStart + this.titel + "/" + this.language + jsonURLEnde;
+        if (this.language.equals(""))
+        {
+            return jsonURLStart + this.titel + jsonURLEnde;
+        }
+        else
+        {
+            return jsonURLStart + this.titel + "/" + this.language + jsonURLEnde;
+        }
     }
 
     public boolean checkURLConform(){
