@@ -12,3 +12,4 @@ release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
 *.xml
+!/TomEE_Code/RefugEEApp/web/WEB-INF/web.xml
