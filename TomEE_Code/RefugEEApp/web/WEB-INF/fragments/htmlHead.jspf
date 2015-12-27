@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Refugees | Welcome</title>
-    <link rel="stylesheet" href="resources/css/foundation.css" />
-    <script src="resopurces/js/vendor/modernizr.js"></script>
+    <link rel="stylesheet" href="/resources/css/foundation.css" />
+    <script src="/resopurces/js/vendor/modernizr.js"></script>
 </head>
 <body>
