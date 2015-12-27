@@ -3,6 +3,7 @@ _windows/
 .idea/
 generated/
 META-INF/
+out/
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
