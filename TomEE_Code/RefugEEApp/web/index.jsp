@@ -3,7 +3,7 @@
 <jsp:include page="WEB-INF/fragments/htmlHead.jspf"/>
 <jsp:include page="WEB-INF/fragments/header.jspf"/>
 <jsp:include page="WEB-INF/fragments/menu.jspf"/>
-<!--<jsp:include page="WEB-INF/fragments/slider.jspf"/><-->
+<%-- <jsp:include page="WEB-INF/fragments/slider.jspf"/> --%>
 <form action="getMediaWikiArticle" method="get">
     <h2><c:out value="${requestScope.title}"/></h2>
     <c:out value="${requestScope.text}" escapeXml="false"/>
