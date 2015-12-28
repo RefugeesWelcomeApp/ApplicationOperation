@@ -1,5 +1,8 @@
-        </h1>
-		<ul class="inline-list right">
+<div class="row">
+    <div class="large-12 columns">
+        <h1><img src="/resources/img/header_logo.png" alt="Welcome!"></a>
+
+            <ul class="inline-list right">
                 <form action="#">
                     <select name="top5" >
                         <option>Deutsch&nbsp;&nbsp;&nbsp;</option>
@@ -7,5 +10,6 @@
                     </select>
                 </form>
             </ul>
+        </h1>
     </div>
 </div>
