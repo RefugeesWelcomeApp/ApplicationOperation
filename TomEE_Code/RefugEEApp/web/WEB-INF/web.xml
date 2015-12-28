@@ -17,9 +17,17 @@
 
 
     <session-config>
-        <session-timeout>30</session-timeout>
+        <session-timeout>1</session-timeout>
     </session-config>
 
+    <servlet>
+        <servlet-name>Proxy</servlet-name>
+        <servlet-class>ra.httpProxy.ProxyServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Proxy</servlet-name>
+        <url-pattern>/media_wiki/*</url-pattern>
+    </servlet-mapping>
     <!--
 
         <init-param>
