@@ -36,5 +36,6 @@
     <orderEntry type="library" name="org.json:json:20151123" level="project" />
     <orderEntry type="library" name="org.eclipse.persistence:eclipselink:2.4.2" level="project" />
     <orderEntry type="library" name="org.eclipse.persistence:org.eclipse.persistence.jpa.modelgen.processor:2.4.2" level="project" />
+    <orderEntry type="library" name="org.apache.directory.studio:org.apache.httpcomponents.httpclient:4.1.2" level="project" />
   </component>
 </module>
