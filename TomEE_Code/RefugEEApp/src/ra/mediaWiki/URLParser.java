@@ -7,7 +7,7 @@ public class URLParser {
     private final static String decodedStart = "https://ddc.derpy.ws/w/";
     private final static String encodedStart = "https://ddc.derpy.ws/media_wiki/";
     private final static String jsonURLStart = "https://ddc.derpy.ws/media_wiki/api.php?action=parse&page=";
-    private final static String jsonURLEnde = "&format=json";
+    private final static String jsonURLEnde = "&disableeditsection=true&disablepp=true&redirects=true&format=json";
 
     private final static String regExPatternDecodedWithLanguage = "^https:\\/\\/\\D+\\.\\D+\\.\\D+\\/w\\/([A-z0-9\\-:]+)\\/([A-z]{2})$";
     private final static String regExPatternDecodedWithoutLanguage = "^https:\\/\\/\\D+\\.\\D+\\.\\D+\\/w\\/([A-z0-9\\-:]+)$";
