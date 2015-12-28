@@ -11,13 +11,13 @@ public class HTTPConnect {
     private URL url;
     private HttpURLConnection httpcon;
 
-    private final static String headerAgent = "Mozilla/4.76";
-
     private String content;
     private InputStream is;
+    private String headerAgent;
 
-    public HTTPConnect(String url) throws IOException {
+    public HTTPConnect(String url, String headerAgent) throws IOException {
         URLParser parser = new URLParser(url);
+        this.headerAgent = headerAgent;
         if (parser.checkURLConform()) {
             this.url = new URL(parser.getJSONUrl());
             openConnection();
@@ -31,7 +31,7 @@ public class HTTPConnect {
 
     private void openConnection() throws IOException {
         this.httpcon = (HttpURLConnection) this.url.openConnection();
-        this.httpcon.addRequestProperty("User-Agent", headerAgent);
+        this.httpcon.addRequestProperty("User-Agent", this.headerAgent);
     }
 
     private HttpURLConnection getHttpcon() {
@@ -49,5 +49,6 @@ public class HTTPConnect {
 
     private void fixContentWikiURLs(){
         content = content.replaceAll("\\/media_wiki\\/","\\/w\\/");
+        content = content.replaceAll("index.php?title=","&action=edit&redlink=1");
     }
 }
