@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<form action="getMediaWikiArticle" method="get">
 <jsp:include page="WEB-INF/fragments/htmlHead.jspf"/>
 <jsp:include page="WEB-INF/fragments/header.jspf"/>
 <jsp:include page="WEB-INF/fragments/menu.jspf"/>
 <%-- <jsp:include page="WEB-INF/fragments/slider.jspf"/> --%>
-<form action="getMediaWikiArticle" method="get">
-    <h2><c:out value="${requestScope.title}"/></h2>
+    <div class="row">
+        <h2><c:out value="${requestScope.title}"/></h2>
     <c:out value="${requestScope.text}" escapeXml="false"/>
     <!--<div><img src="resources/img/flag_germany.jpg"></div>-->
+    </div>
 </form>
 <jsp:include page="WEB-INF/fragments/footer.jspf"/>
