@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * Created by the-l_000 on 15.12.2015.
+ * Created by the-l_000 on 13.12.2015.
  */
 @Entity
 @Table(name = "tbl_product", schema = "RefugeesWelcomeApp", catalog = "")

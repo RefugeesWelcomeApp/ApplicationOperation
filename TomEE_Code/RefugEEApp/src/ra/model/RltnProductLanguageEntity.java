@@ -3,7 +3,7 @@ package ra.model;
 import javax.persistence.*;
 
 /**
- * Created by the-l_000 on 15.12.2015.
+ * Created by the-l_000 on 13.12.2015.
  */
 @Entity
 @Table(name = "rltn_product_language", schema = "RefugeesWelcomeApp", catalog = "")

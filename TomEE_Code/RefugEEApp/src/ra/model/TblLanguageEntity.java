@@ -3,13 +3,14 @@ package ra.model;
 import javax.persistence.*;
 
 /**
- * Created by the-l_000 on 15.12.2015.
+ * Created by the-l_000 on 13.12.2015.
  */
 @Entity
 @Table(name = "tbl_language", schema = "RefugeesWelcomeApp", catalog = "")
 public class TblLanguageEntity {
     private int idtblLanguage;
     private String language;
+
 
     @Id
     @Column(name = "idtbl_language", nullable = false)
