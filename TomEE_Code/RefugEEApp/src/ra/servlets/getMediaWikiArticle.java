@@ -22,7 +22,7 @@ public class getMediaWikiArticle extends HttpServlet  {
         else {
             String WikiURL = request.getRequestURI().replaceFirst("w/", "");
             if (WikiURL.contentEquals("/"))
-                WikiURL = "/Hauptseite";
+                WikiURL = "/Startseite";
             HTTPConnect con = new HTTPConnect("https://ddc.derpy.ws/media_wiki" + WikiURL, request.getHeader("user-agent"));
 
             try {
