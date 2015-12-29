@@ -3,16 +3,17 @@ package ra.model;
 import javax.persistence.*;
 
 /**
- * Created by the-l_000 on 15.12.2015.
+ * Created by hinata2712 on 15/12/24.
  */
 @Entity
 @Table(name = "tbl_language", schema = "RefugeesWelcomeApp", catalog = "")
 public class TblLanguageEntity {
     private int idtblLanguage;
     private String language;
+    private String nativelanguage;
 
     @Id
-    @Column(name = "idtbl_language", nullable = false)
+    @Column(name = "idtbl_language")
     public int getIdtblLanguage() {
         return idtblLanguage;
     }
@@ -22,13 +23,23 @@ public class TblLanguageEntity {
     }
 
     @Basic
-    @Column(name = "language", nullable = true, length = 45)
+    @Column(name = "language")
     public String getLanguage() {
         return language;
     }
 
     public void setLanguage(String language) {
         this.language = language;
+    }
+
+    @Basic
+    @Column(name = "nativelanguage")
+    public String getNativelanguage() {
+        return nativelanguage;
+    }
+
+    public void setNativelanguage(String nativelanguage) {
+        this.nativelanguage = nativelanguage;
     }
 
     @Override
@@ -40,6 +51,8 @@ public class TblLanguageEntity {
 
         if (idtblLanguage != that.idtblLanguage) return false;
         if (language != null ? !language.equals(that.language) : that.language != null) return false;
+        if (nativelanguage != null ? !nativelanguage.equals(that.nativelanguage) : that.nativelanguage != null)
+            return false;
 
         return true;
     }
@@ -48,6 +61,7 @@ public class TblLanguageEntity {
     public int hashCode() {
         int result = idtblLanguage;
         result = 31 * result + (language != null ? language.hashCode() : 0);
+        result = 31 * result + (nativelanguage != null ? nativelanguage.hashCode() : 0);
         return result;
     }
 }

@@ -3,7 +3,7 @@ package ra.model;
 import javax.persistence.*;
 
 /**
- * Created by the-l_000 on 15.12.2015.
+ * Created by hinata2712 on 15/12/24.
  */
 @Entity
 @Table(name = "tbl_shop_category", schema = "RefugeesWelcomeApp", catalog = "")
@@ -12,7 +12,7 @@ public class TblShopCategoryEntity {
     private String osmBezeichner;
 
     @Id
-    @Column(name = "idtbl_shop_category", nullable = false)
+    @Column(name = "idtbl_shop_category")
     public int getIdtblShopCategory() {
         return idtblShopCategory;
     }
@@ -22,7 +22,7 @@ public class TblShopCategoryEntity {
     }
 
     @Basic
-    @Column(name = "OSM Bezeichner", nullable = false, length = 45)
+    @Column(name = "OSM Bezeichner")
     public String getOsmBezeichner() {
         return osmBezeichner;
     }

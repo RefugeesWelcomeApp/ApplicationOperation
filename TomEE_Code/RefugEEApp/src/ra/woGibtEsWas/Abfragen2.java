@@ -6,13 +6,13 @@ import javax.persistence.*;
 import javax.persistence.criteria.*;
 import java.util.List;
 
-public class Abfragen {
+public class Abfragen2 {
 
     // DB Connectivity for update check
     @PersistenceUnit(unitName="RefugEEWelcomeApp")
     public EntityManagerFactory emf = null;
 
-    public Abfragen() {
+    public Abfragen2() {
         int var_sprache = 1;
         EntityManager em		= emf.createEntityManager();
         CriteriaBuilder builder = em.getCriteriaBuilder();
@@ -43,31 +43,25 @@ public class Abfragen {
     }
 
     public static void main(String[] args) {
+
+        EntityManagerFactory emf = Persistence.
+                createEntityManagerFactory( "RefugEEWelcomeApp" );
+
         int var_sprache = 1;
-
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("RefugEEWelcomeApp");
-        EntityManager em = emf.createEntityManager();
+        EntityManager em		= emf.createEntityManager();
         CriteriaBuilder builder = em.getCriteriaBuilder();
-
-
         CriteriaQuery<TblProductCategoryEntity> query = builder.createQuery(TblProductCategoryEntity.class);
 
-        Root<TblProductCategoryEntity> productCategoryEntityRoot = query.from(TblProductCategoryEntity.class);
-
-        Predicate mainCatNull = builder.isNull(productCategoryEntityRoot.get(TblProductCategoryEntity_.maincategory));
-
-        query.select(productCategoryEntityRoot).where(mainCatNull);
-
-        List<TblProductCategoryEntity> results = em.createQuery(query).getResultList();
 
 
-        for(Object o:results)
+        List resultList = em.createQuery(query).getResultList();
+
+        for(Object o:resultList)
         {
             TblProductCategoryEntity e=(TblProductCategoryEntity) o;
             System.out.println(
                     "ID : "+e.getIdtblProductCategory()
-                    +"\tAtt: "+e.getAttachments()
-                    +"\tCAT: "+e.getMaincategory());
+                            +       "maincat : " + e.getMaincategory());
         }
     }
 }

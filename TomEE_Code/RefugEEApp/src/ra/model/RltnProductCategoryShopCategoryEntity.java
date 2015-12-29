@@ -3,7 +3,7 @@ package ra.model;
 import javax.persistence.*;
 
 /**
- * Created by the-l_000 on 15.12.2015.
+ * Created by hinata2712 on 15/12/24.
  */
 @Entity
 @Table(name = "rltn_product_category_shop_category", schema = "RefugeesWelcomeApp", catalog = "")
@@ -13,7 +13,7 @@ public class RltnProductCategoryShopCategoryEntity {
     private int productCategory;
 
     @Id
-    @Column(name = "shop_category", nullable = false)
+    @Column(name = "shop_category")
     public int getShopCategory() {
         return shopCategory;
     }
@@ -23,7 +23,7 @@ public class RltnProductCategoryShopCategoryEntity {
     }
 
     @Id
-    @Column(name = "product_category", nullable = false)
+    @Column(name = "product_category")
     public int getProductCategory() {
         return productCategory;
     }

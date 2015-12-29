@@ -65,7 +65,7 @@
                 </ul>
             </li>
             <li class="divider"></li>
-            <li><a href="/w/Aktuelles">In meiner N&auml;he</a></li>
+            <li><a href="/w/in_meiner_Naehe">In meiner N&auml;he</a></li>
         </ul>
 
         <!-- Right Nav Section -->
@@ -77,7 +77,7 @@
                         <input type="text" name="Suchtext" placeholder="Find Stuff">
                     </div>
                     <div class="large-4 small-3 columns">
-                        <!--<a href="#" class="alert button expand">Search</a>-->
+                        <!--<a href="#" class="alert button expand">Suche</a>-->
                         <input type="submit" value="search" class="alert button expand">
                     </div>
                     </form>

@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * Created by the-l_000 on 15.12.2015.
+ * Created by hinata2712 on 15/12/24.
  */
 @Entity
 @Table(name = "tbl_product", schema = "RefugeesWelcomeApp", catalog = "")
@@ -14,7 +14,7 @@ public class TblProductEntity {
     private int idProdukt;
 
     @Id
-    @Column(name = "idProdukt", nullable = false)
+    @Column(name = "idProdukt")
     public int getIdProdukt() {
         return idProdukt;
     }

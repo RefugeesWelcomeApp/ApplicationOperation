@@ -5,13 +5,13 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
- * Created by the-l_000 on 15.12.2015.
+ * Created by hinata2712 on 15/12/24.
  */
 public class RltnProductCategoryLanguageEntityPK implements Serializable {
     private int productCategoryid;
     private int languageid;
 
-    @Column(name = "product_categoryid", nullable = false)
+    @Column(name = "product_categoryid")
     @Id
     public int getProductCategoryid() {
         return productCategoryid;
@@ -21,7 +21,7 @@ public class RltnProductCategoryLanguageEntityPK implements Serializable {
         this.productCategoryid = productCategoryid;
     }
 
-    @Column(name = "languageid", nullable = false)
+    @Column(name = "languageid")
     @Id
     public int getLanguageid() {
         return languageid;

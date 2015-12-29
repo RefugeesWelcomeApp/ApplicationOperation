@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
-
+		 
     <welcome-file-list>
         <welcome-file>getMediaWikiArticle</welcome-file>
     </welcome-file-list>
@@ -14,13 +14,12 @@
             <page-encoding>UTF-8</page-encoding>
         </jsp-property-group>
     </jsp-config>
-
-
-    <session-config>
+	
+	<session-config>
         <session-timeout>1</session-timeout>
     </session-config>
 
-    <servlet>
+	<servlet>
         <servlet-name>Proxy</servlet-name>
         <servlet-class>ra.httpProxy.ProxyServlet</servlet-class>
     </servlet>
@@ -28,6 +27,19 @@
         <servlet-name>Proxy</servlet-name>
         <url-pattern>/media_wiki/*</url-pattern>
     </servlet-mapping>
+	
+	<servlet>
+        <description>Getting MainCat ID for Subcat searching</description>
+        <servlet-name>getMainCat</servlet-name>
+        <servlet-class>ra.servlets.getMainCategory</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>getMainCat</servlet-name>
+        <url-pattern>/getMainCat</url-pattern>
+    </servlet-mapping>
+
+
     <!--
 
         <init-param>
@@ -40,6 +52,7 @@
             <location>/server_error.html</location>
         </error-page>
         -->
+
     <servlet>
         <servlet-name>s1</servlet-name>
         <servlet-class>ra.servlets.getMediaWikiArticle</servlet-class>
