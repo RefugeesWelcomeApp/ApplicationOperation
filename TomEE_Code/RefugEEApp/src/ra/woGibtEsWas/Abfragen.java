@@ -43,8 +43,6 @@ public class Abfragen {
     }
 
     public static void main(String[] args) {
-        int var_sprache = 1;
-
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("RefugEEWelcomeApp");
         EntityManager em = emf.createEntityManager();
         CriteriaBuilder builder = em.getCriteriaBuilder();

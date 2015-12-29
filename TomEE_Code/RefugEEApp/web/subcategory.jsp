@@ -5,10 +5,10 @@
 <jsp:include page="WEB-INF/fragments/header.jspf"/>
 <jsp:include page="WEB-INF/fragments/menu.jspf"/>
 
-<h1>Produktkategorien</h1>
+<h1>Sub-Produktkategorien</h1>
 
 <div class="row">
-<form action="getMainCat" method="get">
+<form action="getSubCat" method="get">
     <%
         List<String> img = (List<String>) request.getAttribute("img");
         List<Integer> id = (List<Integer>) request.getAttribute("id");
@@ -17,15 +17,10 @@
 
         for (int j = 0; j<i;j++){
     %>
-    <td>
-        <a href="/getSubCat?subCatID=<%= id.get(j)%>">
-        <img src="<%= img.get(j)%>" id="<%= id.get(j)%>" width="150" height="150" border="0" alt="<%= id.get(j)%>">
-        </a>
-    </td>
+    <td><img src="<%= img.get(j)%>" id="<%= id.get(j)%>" width="150" height="150" border="0" alt="<%= id.get(j)%>"></td>
     <%
         }
     %>
 </form>
 </div>
-
 <jsp:include page="WEB-INF/fragments/footer.jspf"/>

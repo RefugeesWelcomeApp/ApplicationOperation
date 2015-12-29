@@ -29,14 +29,13 @@
     </servlet-mapping>
 	
 	<servlet>
-        <description>Getting MainCat ID for Subcat searching</description>
-        <servlet-name>getMainCat</servlet-name>
-        <servlet-class>ra.servlets.getMainCategory</servlet-class>
+        <servlet-name>s1</servlet-name>
+        <servlet-class>ra.servlets.getMediaWikiArticle</servlet-class>
     </servlet>
-    
+
     <servlet-mapping>
-        <servlet-name>getMainCat</servlet-name>
-        <url-pattern>/getMainCat</url-pattern>
+        <servlet-name>s1</servlet-name>
+        <url-pattern>/w/*</url-pattern>
     </servlet-mapping>
 
 
@@ -52,24 +51,4 @@
             <location>/server_error.html</location>
         </error-page>
         -->
-
-    <servlet>
-        <servlet-name>s1</servlet-name>
-        <servlet-class>ra.servlets.getMediaWikiArticle</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>s1</servlet-name>
-        <url-pattern>/w/*</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>s2</servlet-name>
-        <servlet-class>ra.servlets.getMediaWikiSearch</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>s2</servlet-name>
-        <url-pattern>/s/*</url-pattern>
-    </servlet-mapping>
 </web-app>
