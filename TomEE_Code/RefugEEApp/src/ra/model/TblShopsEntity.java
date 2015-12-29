@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Arrays;
 
 /**
- * Created by the-l_000 on 13.12.2015.
+ * Created by hinata2712 on 15/12/24.
  */
 @Entity
 @Table(name = "tbl_shops", schema = "RefugeesWelcomeApp", catalog = "")
@@ -18,7 +18,7 @@ public class TblShopsEntity {
     private Integer productrange;
 
     @Id
-    @Column(name = "idShops", nullable = false)
+    @Column(name = "idShops")
     public int getIdShops() {
         return idShops;
     }
@@ -28,7 +28,7 @@ public class TblShopsEntity {
     }
 
     @Basic
-    @Column(name = "shop_name", nullable = false, length = 45)
+    @Column(name = "shop_name")
     public String getShopName() {
         return shopName;
     }
@@ -38,7 +38,7 @@ public class TblShopsEntity {
     }
 
     @Basic
-    @Column(name = "shop_category", nullable = false)
+    @Column(name = "shop_category")
     public int getShopCategory() {
         return shopCategory;
     }
@@ -48,7 +48,7 @@ public class TblShopsEntity {
     }
 
     @Basic
-    @Column(name = "attachment", nullable = true)
+    @Column(name = "attachment")
     public byte[] getAttachment() {
         return attachment;
     }
@@ -58,7 +58,7 @@ public class TblShopsEntity {
     }
 
     @Basic
-    @Column(name = "quality", nullable = true)
+    @Column(name = "quality")
     public Integer getQuality() {
         return quality;
     }
@@ -68,7 +68,7 @@ public class TblShopsEntity {
     }
 
     @Basic
-    @Column(name = "price", nullable = true)
+    @Column(name = "price")
     public Integer getPrice() {
         return price;
     }
@@ -78,7 +78,7 @@ public class TblShopsEntity {
     }
 
     @Basic
-    @Column(name = "productrange", nullable = true)
+    @Column(name = "productrange")
     public Integer getProductrange() {
         return productrange;
     }

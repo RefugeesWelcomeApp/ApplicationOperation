@@ -5,13 +5,13 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
- * Created by the-l_000 on 13.12.2015.
+ * Created by hinata2712 on 15/12/24.
  */
 public class RltnProductShopcategoryEntityPK implements Serializable {
     private int product;
     private int shopcategory;
 
-    @Column(name = "product", nullable = false)
+    @Column(name = "product")
     @Id
     public int getProduct() {
         return product;
@@ -21,7 +21,7 @@ public class RltnProductShopcategoryEntityPK implements Serializable {
         this.product = product;
     }
 
-    @Column(name = "shopcategory", nullable = false)
+    @Column(name = "shopcategory")
     @Id
     public int getShopcategory() {
         return shopcategory;
