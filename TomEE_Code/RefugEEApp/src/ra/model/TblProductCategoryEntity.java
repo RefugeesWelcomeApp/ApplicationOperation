@@ -11,7 +11,7 @@ import java.util.Arrays;
 public class TblProductCategoryEntity {
     private int idtblProductCategory;
     private Integer maincategory;
-    private byte[] attachments;
+    private String attachments;
 
     @Id
     @Column(name = "idtbl_product_category", nullable = false)
@@ -35,11 +35,11 @@ public class TblProductCategoryEntity {
 
     @Basic
     @Column(name = "attachments", nullable = true)
-    public byte[] getAttachments() {
+    public String getAttachments() {
         return attachments;
     }
 
-    public void setAttachments(byte[] attachments) {
+    public void setAttachments(String attachments) {
         this.attachments = attachments;
     }
 
@@ -52,7 +52,7 @@ public class TblProductCategoryEntity {
 
         if (idtblProductCategory != that.idtblProductCategory) return false;
         if (maincategory != null ? !maincategory.equals(that.maincategory) : that.maincategory != null) return false;
-        if (!Arrays.equals(attachments, that.attachments)) return false;
+        if (attachments != null ? !attachments.equals(that.attachments) : that.attachments != null) return false;
 
         return true;
     }
@@ -61,7 +61,7 @@ public class TblProductCategoryEntity {
     public int hashCode() {
         int result = idtblProductCategory;
         result = 31 * result + (maincategory != null ? maincategory.hashCode() : 0);
-        result = 31 * result + Arrays.hashCode(attachments);
+        result = 31 * result + (attachments != null ? attachments.hashCode() : 0);
         return result;
     }
 }
