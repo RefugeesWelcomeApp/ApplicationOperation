@@ -1,0 +1,82 @@
+<!--Menu-->
+<nav class="top-bar" data-topbar role="navigation">
+    <ul class="title-area">
+        <li class="name">
+            <h1><a href="/en">Startseite</a></h1>
+        </li>
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Home</span></a></li>
+    </ul>
+
+    <section class="top-bar-section">
+        <!-- Left Nav Section -->
+        <ul class="left">
+            <li class="divider"></li>
+            <li class="has-dropdown">
+                <a href="/w/Formulare/en">forms</a>
+                <ul class="dropdown">
+                    <li><a href="/w/Erstantrag/en">First application</a></li>
+                    <li><a href="/w/Registrierung/en">Registration</a></li>
+                    <li class="has-dropdown">
+                        <a href="/w/weitere_Formulare/en" class="">other Forms</a>
+                        <ul class="dropdown">
+                            <li><a href="/w/Versicherung/en">Insurance</a></li>
+                            <li><a href="/w/Arbeit/en">Work</a></li>
+                            <li><a href="/w/weitere_Formulare/en">others...</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/w/Ablehnung/en">What happens in case of rejection?</a></li>
+                </ul>
+            </li>
+            <li class="divider"></li>
+            <li class="has-dropdown">
+                <a href="/w/das_Leben_in_Deutschland/en">Life in Deutschland</a>
+                <ul class="dropdown">
+                    <li><a href="/w/Rechtliches/en">Terms</a></li>
+                    <li><a href="/w/StVO/en">Road rules</a></li>
+                    <li><a href="/w/wichtige_Nummern/en">important numbers</a></li>
+                    <li><a href="/w/schwarzes_Brett/en">black board</a></li>
+                    <li><a href="/w/Knigge/en">Knigge</a></li>
+                    <li><a href="/w/Beschreibung_Deutschland/en">german behavior</a></li>
+                    <li><a href="/w/Umrechnungsrechner/en">Calculator (currency)</a></li>
+                    <li><a href="/w/Gesundheitsstandard/en">Health standard</a></li>
+                    <li><a href="/w/Bildung/en">Knowlege Language Work Living</a></li>
+                </ul>
+            </li>
+            <li class="divider"></li>
+            <li class="has-dropdown">
+                <a href="#">Where do I find what?</a>
+                <ul class="dropdown">
+                    <li class="has-dropdown">
+                        <a href="/w/Buecher/en" class="">Books</a>
+                        <ul class="dropdown">
+                            <li><a href="/w/Zeitungen/en">Newspaper</a></li>
+                            <li><a href="/w/Fachliteratur/en">Fachliteratur</a></li>
+                            <li><a href="/w/Buecher/en">etc...</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/w/Essen/en">Food</a></li>
+                    <li><a href="/w/Technik/en">Technic</a></li>
+                    <li><a href="/w/Werkzeuge/en">Tools</a></li>
+                    <li><a href="/w/Hygiene/en">Hygiene</a></li>
+                </ul>
+            </li>
+            <li class="divider"></li>
+            <li><a href="/w/in_meiner_Naehe/en">close to me</a></li>
+        </ul>
+
+        <!-- Right Nav Section -->
+        <ul class="right">
+            <li class="has-form">
+                <div class="row collapse">
+                    <div class="large-8 small-9 columns">
+                        <input type="text" placeholder="find...">
+                    </div>
+                    <div class="large-4 small-3 columns">
+                        <a href="#" class="alert button expand">Search</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </section>
+</nav>
