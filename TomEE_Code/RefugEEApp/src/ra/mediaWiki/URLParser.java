@@ -9,10 +9,10 @@ public class URLParser {
     private final static String jsonURLStart = "https://ddc.derpy.ws/media_wiki/api.php?action=parse&page=";
     private final static String jsonURLEnde = "&disableeditsection=true&disablepp=true&redirects=true&format=json";
 
-    private final static String regExPatternDecodedWithLanguage = "^https:\\/\\/\\D+\\.\\D+\\.\\D+\\/w\\/([A-z0-9\\-:]+)\\/([A-z]{2})$";
-    private final static String regExPatternDecodedWithoutLanguage = "^https:\\/\\/\\D+\\.\\D+\\.\\D+\\/w\\/([A-z0-9\\-:]+)$";
-    private final static String regExPatternEncodedWithLanguage = "^https:\\/\\/\\D+\\.\\D+\\.\\D+\\/media_wiki\\/([A-z0-9\\-:]+)\\/([A-z]{2})$";
-    private final static String regExPatternEncodedWithoutLanguage = "^https:\\/\\/\\D+\\.\\D+\\.\\D+\\/media_wiki\\/([A-z0-9\\-:]+)$";
+    private final static String regExPatternDecodedWithLanguage = "^https:\\/\\/\\D+\\.\\D+\\.\\D+\\/w\\/([A-z0-9\\-:_%,]+)\\/([A-z]{2})$";
+    private final static String regExPatternDecodedWithoutLanguage = "^https:\\/\\/\\D+\\.\\D+\\.\\D+\\/w\\/([A-z0-9\\-:_%,]+)$";
+    private final static String regExPatternEncodedWithLanguage = "^https:\\/\\/\\D+\\.\\D+\\.\\D+\\/media_wiki\\/([A-z0-9\\-:_%,]+)\\/([A-z]{2})$";
+    private final static String regExPatternEncodedWithoutLanguage = "^https:\\/\\/\\D+\\.\\D+\\.\\D+\\/media_wiki\\/([A-z0-9\\-:_%,]+)$";
 
     private String url;
     private String sTitle;
