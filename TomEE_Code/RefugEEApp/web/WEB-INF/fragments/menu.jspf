@@ -72,12 +72,15 @@
         <ul class="right">
             <li class="has-form">
                 <div class="row collapse">
+                    <form id="wsearch" method="post" action="/s/de">
                     <div class="large-8 small-9 columns">
-                        <input type="text" placeholder="Find Stuff">
+                        <input type="text" name="Suchtext" placeholder="Find Stuff">
                     </div>
                     <div class="large-4 small-3 columns">
-                        <a href="#" class="alert button expand">Search</a>
+                        <!--<a href="#" class="alert button expand">Search</a>-->
+                        <input type="submit" value="search" class="alert button expand">
                     </div>
+                    </form>
                 </div>
             </li>
         </ul>
