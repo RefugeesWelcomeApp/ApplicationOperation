@@ -49,4 +49,14 @@
         <servlet-name>s1</servlet-name>
         <url-pattern>/w/*</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>s2</servlet-name>
+        <servlet-class>ra.servlets.getMediaWikiSearch</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>s2</servlet-name>
+        <url-pattern>/s/*</url-pattern>
+    </servlet-mapping>
 </web-app>
