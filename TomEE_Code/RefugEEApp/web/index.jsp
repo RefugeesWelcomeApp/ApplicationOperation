@@ -4,6 +4,10 @@
 <jsp:include page="WEB-INF/fragments/header.jspf"/>
 <jsp:include page="WEB-INF/fragments/menu.jspf"/>
 <%-- <jsp:include page="WEB-INF/fragments/slider.jspf"/> --%>
+
+<div class="row">
+    <a href="/getMainCat">TESTLINK</a>
+</div>
 <form action="getMediaWikiArticle" method="get">
     <div class="row">
         <h2><c:out value="${requestScope.title}"/></h2>
