@@ -33,11 +33,7 @@ public class TblProductCategoryEntity {
     }
 
     @Basic
-<<<<<<< HEAD
     @Column(name = "attachments", nullable = true)
-=======
-    @Column(name = "attachments")
->>>>>>> ffffe93877f06df6a42d186341dde96439b86995
     public String getAttachments() {
         return attachments;
     }
