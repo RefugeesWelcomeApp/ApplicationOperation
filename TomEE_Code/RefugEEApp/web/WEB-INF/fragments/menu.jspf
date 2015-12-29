@@ -32,15 +32,14 @@
             <li class="has-dropdown">
                 <a href="/w/das_Leben_in_Deutschland">Das Leben in Deutschland</a>
                 <ul class="dropdown">
-                    <li><a href="/w/Rechtliches_ein_mal_eins">Rechtliches 1*1</a></li>
+                    <li><a href="/w/Rechtliches">Rechtliches 1*1</a></li>
                     <li><a href="/w/StVO">StVO</a></li>
                     <li><a href="/w/wichtige_Nummern">wichtige Nummern</a></li>
-                    <li><a href="/w/Aktuelles">schwarzes Brett</a></li>
+                    <li><a href="/w/schwarzes_Brett">schwarzes Brett</a></li>
                     <li><a href="/w/Knigge">Knigge</a></li>
                     <li><a href="/w/Beschreibung_Deutschland">allg. Beschreibung Deutsche</a></li>
-                    <li><a href="/w/Typisch_Deutsch">typisch Deutsch</a></li>
-                    <li><a href="/w/W%C3%A4hrungen,_Ma%C3%9Feinheiten_und_weiteres">W&auml;hrungen, Ma&szlig;einheiten,...</a></li>
-                    <li><a href="/w/Gesundheit">Gesundheitsstandard bzw. Besonderheiten</a></li>
+                    <li><a href="/w/Umrechnungsrechner">Umrechnungsrechner (W&auml;hrung)</a></li>
+                    <li><a href="/w/Gesundheitsstandard">Gesundheitsstandard bzw. Besonderheiten</a></li>
                     <li><a href="/w/Bildung">Bildung Sprache Arbeit Wohnen</a></li>
                 </ul>
             </li>
@@ -65,7 +64,7 @@
                 </ul>
             </li>
             <li class="divider"></li>
-            <li><a href="/w/Aktuelles">In meiner N&auml;he</a></li>
+            <li><a href="/w/in_meiner_Naehe">In meiner N&auml;he</a></li>
         </ul>
 
         <!-- Right Nav Section -->
@@ -73,10 +72,10 @@
             <li class="has-form">
                 <div class="row collapse">
                     <div class="large-8 small-9 columns">
-                        <input type="text" placeholder="Find Stuff">
+                        <input type="text" placeholder="Suche...">
                     </div>
                     <div class="large-4 small-3 columns">
-                        <a href="#" class="alert button expand">Search</a>
+                        <a href="#" class="alert button expand">Suche</a>
                     </div>
                 </div>
             </li>

@@ -43,25 +43,31 @@ public class Abfragen {
     }
 
     public static void main(String[] args) {
-
-        EntityManagerFactory emf = Persistence.
-                createEntityManagerFactory( "RefugEEWelcomeApp" );
-
         int var_sprache = 1;
-        EntityManager em		= emf.createEntityManager();
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("RefugEEWelcomeApp");
+        EntityManager em = emf.createEntityManager();
         CriteriaBuilder builder = em.getCriteriaBuilder();
+
+
         CriteriaQuery<TblProductCategoryEntity> query = builder.createQuery(TblProductCategoryEntity.class);
 
+        Root<TblProductCategoryEntity> productCategoryEntityRoot = query.from(TblProductCategoryEntity.class);
+
+        Predicate mainCatNull = builder.isNull(productCategoryEntityRoot.get(TblProductCategoryEntity_.maincategory));
+
+        query.select(productCategoryEntityRoot).where(mainCatNull);
+
+        List<TblProductCategoryEntity> results = em.createQuery(query).getResultList();
 
 
-        List resultList = em.createQuery(query).getResultList();
-
-        for(Object o:resultList)
+        for(Object o:results)
         {
             TblProductCategoryEntity e=(TblProductCategoryEntity) o;
             System.out.println(
                     "ID : "+e.getIdtblProductCategory()
-                            +       "maincat : " + e.getMaincategory());
+                    +"\tAtt: "+e.getAttachments()
+                    +"\tCAT: "+e.getMaincategory());
         }
     }
 }

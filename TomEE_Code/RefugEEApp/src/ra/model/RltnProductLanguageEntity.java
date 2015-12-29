@@ -3,7 +3,7 @@ package ra.model;
 import javax.persistence.*;
 
 /**
- * Created by the-l_000 on 13.12.2015.
+ * Created by hinata2712 on 15/12/24.
  */
 @Entity
 @Table(name = "rltn_product_language", schema = "RefugeesWelcomeApp", catalog = "")
@@ -15,7 +15,7 @@ public class RltnProductLanguageEntity {
     private String description;
 
     @Id
-    @Column(name = "productid", nullable = false)
+    @Column(name = "productid")
     public int getProductid() {
         return productid;
     }
@@ -25,7 +25,7 @@ public class RltnProductLanguageEntity {
     }
 
     @Id
-    @Column(name = "languageid", nullable = false)
+    @Column(name = "languageid")
     public int getLanguageid() {
         return languageid;
     }
@@ -35,7 +35,7 @@ public class RltnProductLanguageEntity {
     }
 
     @Basic
-    @Column(name = "translation", nullable = false, length = 45)
+    @Column(name = "translation")
     public String getTranslation() {
         return translation;
     }
@@ -45,7 +45,7 @@ public class RltnProductLanguageEntity {
     }
 
     @Basic
-    @Column(name = "description", nullable = true, length = -1)
+    @Column(name = "description")
     public String getDescription() {
         return description;
     }

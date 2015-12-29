@@ -1,20 +1,19 @@
 package ra.model;
 
 import javax.persistence.*;
-import java.util.Arrays;
 
 /**
- * Created by the-l_000 on 13.12.2015.
+ * Created by hinata2712 on 15/12/24.
  */
 @Entity
-@Table(name = "tbl_product_category", schema = "RefugeesWelcomeApp", catalog = "")
+@Table(name = "tbl_product_category", schema = "RefugeesWelcomeApp")
 public class TblProductCategoryEntity {
     private int idtblProductCategory;
     private Integer maincategory;
     private String attachments;
 
     @Id
-    @Column(name = "idtbl_product_category", nullable = false)
+    @Column(name = "idtbl_product_category")
     public int getIdtblProductCategory() {
         return idtblProductCategory;
     }
@@ -24,7 +23,7 @@ public class TblProductCategoryEntity {
     }
 
     @Basic
-    @Column(name = "maincategory", nullable = true)
+    @Column(name = "maincategory")
     public Integer getMaincategory() {
         return maincategory;
     }
@@ -34,7 +33,11 @@ public class TblProductCategoryEntity {
     }
 
     @Basic
+<<<<<<< HEAD
     @Column(name = "attachments", nullable = true)
+=======
+    @Column(name = "attachments")
+>>>>>>> ffffe93877f06df6a42d186341dde96439b86995
     public String getAttachments() {
         return attachments;
     }
