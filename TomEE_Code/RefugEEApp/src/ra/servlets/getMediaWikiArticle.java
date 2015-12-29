@@ -15,14 +15,14 @@ public class getMediaWikiArticle extends HttpServlet  {
     private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (request.getRequestURI().endsWith(".png") && !request.getRequestURI().contains(":"))
+        if (request.getRequestURI().toLowerCase().endsWith(".png") && !request.getRequestURI().contains(":"))
         {
             getServletContext().getRequestDispatcher(request.getRequestURI().replaceFirst("/w/","/media_wiki/")).include(request, response);
         }
         else {
             String WikiURL = request.getRequestURI().replaceFirst("w/", "");
             if (WikiURL.contentEquals("/"))
-                WikiURL = "/Hauptseite/de";
+                WikiURL = "/Hauptseite";
             HTTPConnect con = new HTTPConnect("https://ddc.derpy.ws/media_wiki" + WikiURL, request.getHeader("user-agent"));
 
             try {
