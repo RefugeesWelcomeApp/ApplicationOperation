@@ -19,7 +19,10 @@ public class HTTPConnect {
         URLParser parser = new URLParser(url);
         this.headerAgent = headerAgent;
         if (parser.checkURLConform()) {
-            this.url = new URL(parser.getJSONUrl());
+            if (!url.contains("/api.php?action=query&list=search&srsearch="))
+            {this.url = new URL(parser.getJSONUrl());}
+            else
+            {this.url = new URL(url);}
             openConnection();
             this.is = getHttpcon().getInputStream();
             setContent();

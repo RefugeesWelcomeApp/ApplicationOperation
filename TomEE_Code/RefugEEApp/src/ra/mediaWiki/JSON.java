@@ -9,13 +9,20 @@ public class JSON {
 
     private JSONObject parse, title, text;
 
-    public JSON(String json) {
-        setParse(json);
-        setTitle();
-        setText();
+    public JSON(String json, Boolean isSearch) {
+        if (isSearch){
+            setParse(json);
 
-        setTitleStr();
-        setTextStr();
+            setTextstrSearch();
+        }
+        else {
+            setParse(json);
+            setTitleParse();
+            setTextParse();
+
+            setTitleStr();
+            setTextStrParse();
+        }
     }
 
     public String getTitleStr() {
@@ -30,15 +37,31 @@ public class JSON {
         return textStr;
     }
 
-    private void setTextStr() {
+    private void setTextStrParse() {
         this.textStr = this.text.getString("*");
+    }
+
+    private void setTextstrSearch() {
+        try {
+            String sSearchResult = "";
+            for (int i = 0; i < this.parse.getJSONObject("query").getJSONArray("search").length(); i++) {
+                JSONObject localJSONo = this.parse.getJSONObject("query").getJSONArray("search").getJSONObject(i);
+                sSearchResult += "<br>";
+                sSearchResult += "<h4><a href=\"/w/" + localJSONo.getString("title")+ "\">" + localJSONo.getString("title") + "</a></h4>";
+                sSearchResult += "<p>" + localJSONo.getString("snippet") + "</p>";
+            }
+            this.textStr =sSearchResult;
+        } catch (RuntimeException ex)
+        {
+            ;
+        }
     }
 
     private void setParse(String parse) {
         this.parse = new JSONObject(parse);
     }
 
-    private void setTitle() {
+    private void setTitleParse() {
         try {
             this.title = this.parse.getJSONObject("parse");
         } catch (RuntimeException ex)
@@ -48,12 +71,12 @@ public class JSON {
 
     }
 
-    private void setText() {
+    private void setTextParse() {
         try {
             this.text = this.title.getJSONObject("text");
         } catch (RuntimeException ex)
-            {
-                ;
-            }
+        {
+            ;
+        }
     }
 }
