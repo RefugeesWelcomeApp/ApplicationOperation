@@ -12,16 +12,15 @@ import javax.persistence.criteria.Root;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.List;
-
 /**
- * Created by Nico on 20.12.2015.
+ * Created by Nico on 23.12.2015.
  */
-public class WoWas {
+public class WoIstWas {
 
     private int cat_Summe;      //menge aller in Datenbank hinterlegten Kategorien
     private int cat_ID;         // ID der vom User ausgewählten Kategorie
     private int languag_summe;
-    private int language_ID;    // von user gewählte Anzeigesprache
+    private int language_ID=1;    // von user gewählte Anzeigesprache
     private int this_Language_ID;   // tatsächlich verwendete Sprach_ID
     private int location_ID;    // vom User ausgewählte Location_ID
     private int sub_cat_summe;  // menge aller in Datenbank hinterlegten Sub_Kategorien(in Abhängigkeit zur kat_ID)
@@ -40,7 +39,7 @@ public class WoWas {
     private List<TblLanguageEntity> LanguageList;
 
 
-    public WoWas() {
+    public WoIstWas() {
         EntityManagerFactory emf = Persistence.
                 createEntityManagerFactory( "RefugEEWelcomeApp" ); EntityManager em		= emf.createEntityManager();
 
@@ -117,9 +116,9 @@ public class WoWas {
 
         CriteriaQuery<TblLanguageEntity> query = builder.createQuery(TblLanguageEntity.class);
         Root<TblLanguageEntity> from = query.from(TblLanguageEntity.class);
-       //Predicate equal1 = builder.equal(from.get(TblProductCategoryEntity_.maincategory), cat_ID);
+        //Predicate equal1 = builder.equal(from.get(TblProductCategoryEntity_.maincategory), cat_ID);
 
-      //  query.select(from).where(equal1);
+        //  query.select(from).where(equal1);
 
         this.LanguageList = em.createQuery(query).getResultList();
         createLanguageCount(this.LanguageList);
@@ -263,22 +262,22 @@ public class WoWas {
             System.out.println("Prod_ID : " + e.getProduct() );
         }
     }
-    public void textoutput_MainCat() {
+    public int textoutput_MainCat() {
         for (Object o : this.getMainResultList()) {
             TblProductCategoryEntity e = (TblProductCategoryEntity) o;
-            System.out.println("MainCat_ID : " + e.getIdtblProductCategory());
+            return e.getIdtblProductCategory();
             // <td><img src="<%= e.getAttachments() %>" alt="images Here" width="200 px" height="200px"></td>
-
         }
+        return 0;
     }
-public void textoutput_SubCat(){
-    System.out.println("MainCat_ID:" + this.getCat_ID());
-    for (Object o : this.getSubResultList()) {
-        TblProductCategoryEntity e = (TblProductCategoryEntity) o;
-        System.out.println("SubCat_ID : " + e.getIdtblProductCategory());
+    public void textoutput_SubCat(){
+        System.out.println("MainCat_ID:" + this.getCat_ID());
+        for (Object o : this.getSubResultList()) {
+            TblProductCategoryEntity e = (TblProductCategoryEntity) o;
+            System.out.println("SubCat_ID : " + e.getIdtblProductCategory());
+        }
+        // ausgabe der Cat_IDs via Console wird in Sprach bezichner/ blob für vis. Ausgabe übersetzt
     }
-    // ausgabe der Cat_IDs via Console wird in Sprach bezichner/ blob für vis. Ausgabe übersetzt
-}
     public void textoutput_ShopCats(){
 
         for (Object o : this.getShopCatList()) {
