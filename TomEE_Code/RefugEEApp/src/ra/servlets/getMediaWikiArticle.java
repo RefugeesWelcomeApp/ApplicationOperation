@@ -15,7 +15,7 @@ public class getMediaWikiArticle extends HttpServlet  {
     private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (request.getRequestURI().toLowerCase().endsWith(".png") && !request.getRequestURI().contains(":"))
+        if ((request.getRequestURI().toLowerCase().endsWith(".png") || request.getRequestURI().toLowerCase().endsWith(".jpg") || request.getRequestURI().toLowerCase().endsWith(".jpeg")) && !request.getRequestURI().contains(":"))
         {
             getServletContext().getRequestDispatcher(request.getRequestURI().replaceFirst("/w/","/media_wiki/")).include(request, response);
         }
@@ -26,7 +26,7 @@ public class getMediaWikiArticle extends HttpServlet  {
             HTTPConnect con = new HTTPConnect("https://ddc.derpy.ws/media_wiki" + WikiURL, request.getHeader("user-agent"));
 
             try {
-                JSON json = new JSON(con.getContent());
+                JSON json = new JSON(con.getContent(), false);
 
                 request.setAttribute("title", json.getTitleStr());
                 request.setAttribute("text", json.getTextStr());
