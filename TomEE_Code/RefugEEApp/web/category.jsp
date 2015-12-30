@@ -21,13 +21,13 @@
     %>
 
     <td>
-        <a href="/getSubCat?mainCatID=<%= id.get(j)%>">
+        <a href="/getSubCat?mainCatID=<%= id.get(j)%>&languageID=<%=languageID%>">
 
             <img src="<%=img.get(j)%>" id="<%= id.get(j)%>" width="200" height="200" border="0" onError='this.src="resources/img/404.png";'>
 
         </a>
 
-        <a href="/getSubCat?mainCatID=<%= id.get(j)%>">
+        <a href="/getSubCat?mainCatID=<%= id.get(j)%>&languageID=<%=languageID%>">
         <%=name.get(id.get(j)-1)%>
             <br><br>
             </a>

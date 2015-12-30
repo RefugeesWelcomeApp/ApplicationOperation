@@ -4,7 +4,7 @@
 <jsp:include page="WEB-INF/fragments/htmlHead.jspf"/>
 <jsp:include page="WEB-INF/fragments/header.jspf"/>
 <jsp:include page="WEB-INF/fragments/menu.jsp"/>
-<h1>Sub-Produktkategorien</h1>
+<h1>Unterproduktkategorien</h1>
 
 <div class="row">
 <form action="getSubCat" method="get">
@@ -19,11 +19,11 @@
         for (int j = 0; j<i;j++){
     %>
     <td>
-        <a href="/getProd?subCatID=<%= id.get(j)%>">
+        <a href="/getProd?subCatID=<%= id.get(j)%>&languageID=<%=languageID%>">
             <img src="<%=img.get(j)%>" id="<%= id.get(j)%>" width="200" height="200" border="0" onError='this.src="resources/img/404.png";'>
         </a>
 
-        <a href="/getProd?subCatID=<%= id.get(j)%>">
+        <a href="/getProd?subCatID=<%= id.get(j)%>&languageID=<%=languageID%>">
             <%=name.get(id.get(j)-1)%>
             <br><br>
 

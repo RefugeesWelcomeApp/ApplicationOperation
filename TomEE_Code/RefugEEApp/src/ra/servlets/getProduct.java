@@ -1,9 +1,6 @@
 package ra.servlets;
 
-import ra.model.RltnProductCategoryLanguageEntity;
-import ra.model.RltnProductCategoryLanguageEntity_;
-import ra.model.TblProductCategoryEntity;
-import ra.model.TblProductCategoryEntity_;
+import ra.model.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -45,49 +42,81 @@ public class getProduct extends HttpServlet{
         EntityManager em		= emf.createEntityManager();
         CriteriaBuilder builder = em.getCriteriaBuilder();
 
-        CriteriaQuery<TblProductCategoryEntity> query = builder.createQuery(TblProductCategoryEntity.class);
+        CriteriaQuery<RltnProductCategoryEntity> query = builder.createQuery(RltnProductCategoryEntity.class);
 
-        Root<TblProductCategoryEntity> productCategoryEntityRoot = query.from(TblProductCategoryEntity.class);
+        Root<RltnProductCategoryEntity> productCategoryRelRoot = query.from(RltnProductCategoryEntity.class);
 
-        Predicate mainCatWithID = builder.equal(productCategoryEntityRoot.get(TblProductCategoryEntity_.maincategory), mainCatID);
+        Predicate subCatWithID = builder.equal(productCategoryRelRoot.get(RltnProductCategoryEntity_.category), subCatID);
 
-        query.select(productCategoryEntityRoot).where(mainCatWithID);
+        query.select(productCategoryRelRoot).where(subCatWithID);
 
-        List<TblProductCategoryEntity> results = em.createQuery(query).getResultList();
+        List<RltnProductCategoryEntity> results = em.createQuery(query).getResultList();
 
-        List<String> urls = new ArrayList<>();
-        List<Integer> subCat = new ArrayList<>();
+        List<Integer> prodID = new ArrayList<>();
 
         for (Object o: results){
-            TblProductCategoryEntity e=(TblProductCategoryEntity) o;
-            urls.add(e.getAttachments());
-            subCat.add(e.getIdtblProductCategory());
-            System.out.println(e.getAttachments());
-            System.out.println(e.getIdtblProductCategory());
+            RltnProductCategoryEntity e=(RltnProductCategoryEntity) o;
+            prodID.add(e.getProduct());
+            System.out.println(e.getProduct());
         }
-        CriteriaQuery<RltnProductCategoryLanguageEntity> queryName = builder.createQuery(RltnProductCategoryLanguageEntity.class);
+        CriteriaQuery<RltnProductLanguageEntity> queryName = builder.createQuery(RltnProductLanguageEntity.class);
 
-        Root<RltnProductCategoryLanguageEntity> productCategoryEntityLanguageRoot = queryName.from(RltnProductCategoryLanguageEntity.class);
+        Root<RltnProductLanguageEntity> productEntityLanguageRoot = queryName.from(RltnProductLanguageEntity.class);
 
-        Predicate languageWithID = builder.equal(productCategoryEntityLanguageRoot.get(RltnProductCategoryLanguageEntity_.languageid), languageID);
+        Predicate languageWithID = builder.equal(productEntityLanguageRoot.get(RltnProductLanguageEntity_.languageid), languageID);
 
-        queryName.select(productCategoryEntityLanguageRoot).where(languageWithID);
+        queryName.select(productEntityLanguageRoot).where(languageWithID);
 
-        List<RltnProductCategoryLanguageEntity> resultsName = em.createQuery(queryName).getResultList();
-        List<String> name = new ArrayList<>();
+        List<RltnProductLanguageEntity> resultsName = em.createQuery(queryName).getResultList();
+        List<String> productName = new ArrayList<>();
 
         for (Object o: resultsName){
-            RltnProductCategoryLanguageEntity e=(RltnProductCategoryLanguageEntity) o;
-            name.add(e.getTranslation());
+            RltnProductLanguageEntity e=(RltnProductLanguageEntity) o;
+            productName.add(e.getTranslation());
             System.out.println(e.getTranslation());
         }
-        request.setAttribute("img", urls);
-        request.setAttribute("id", subCat);
-        request.setAttribute("name", name);
+
+        CriteriaQuery<RltnProductCategoryShopCategoryEntity> queryShopCats = builder.createQuery(RltnProductCategoryShopCategoryEntity.class);
+
+        Root<RltnProductCategoryShopCategoryEntity> productCatShopCatEntityRoot = queryShopCats.from(RltnProductCategoryShopCategoryEntity.class);
+
+        Predicate SubCatWithID = builder.equal(productCatShopCatEntityRoot.get(RltnProductCategoryShopCategoryEntity_.productCategory), subCatID);
+
+        queryShopCats.select(productCatShopCatEntityRoot).where(SubCatWithID);
+
+        List<RltnProductCategoryShopCategoryEntity> resultsShopCats = em.createQuery(queryShopCats).getResultList();
+        List<Integer> shopCatID = new ArrayList<>();
+
+        for (Object o: resultsShopCats) {
+            RltnProductCategoryShopCategoryEntity e = (RltnProductCategoryShopCategoryEntity) o;
+            shopCatID.add(e.getShopCategory());
+            System.out.println(e.getShopCategory());
+        }
+        CriteriaQuery<RltnProductCategoryLanguageEntity> queryShopCatName = builder.createQuery(RltnProductCategoryLanguageEntity.class);
+
+        Root<RltnProductCategoryLanguageEntity> shopCatEntityLanguageRoot = queryShopCatName.from(RltnProductCategoryLanguageEntity.class);
+
+        Predicate languageShopCatWithID = builder.equal(shopCatEntityLanguageRoot.get(RltnProductCategoryLanguageEntity_.languageid), languageID);
+
+        queryShopCatName.select(shopCatEntityLanguageRoot).where(languageShopCatWithID);
+
+        List<RltnProductCategoryLanguageEntity> resultsShopCatName = em.createQuery(queryShopCatName).getResultList();
+        List<String> shopCatName = new ArrayList<>();
+
+        for (Object o: resultsShopCatName){
+            RltnProductCategoryLanguageEntity e=(RltnProductCategoryLanguageEntity) o;
+            shopCatName.add(e.getTranslation());
+            System.out.println(e.getTranslation());
+        }
+
+        request.setAttribute("productID", prodID);
+        request.setAttribute("productName", productName);
+        request.setAttribute("shopCatID", shopCatID);
+        request.setAttribute("shopCatName", shopCatName);
         request.setAttribute("languageID",languageID);
 
         String[] sLanguage = request.getRequestURI().split("/");
         if (sLanguage.length > 0) request.setAttribute("Sprache", sLanguage[sLanguage.length-1]);
-        getServletContext().getRequestDispatcher("/subcategory.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/product.jsp").forward(request, response);
     }
 }
