@@ -2,12 +2,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="WEB-INF/fragments/htmlHead.jspf"/>
 <jsp:include page="WEB-INF/fragments/header.jspf"/>
-<jsp:include page="WEB-INF/fragments/menu.jspf"/>
-<%-- <jsp:include page="WEB-INF/fragments/slider.jspf"/> --%>
 
-<div class="row">
-    <a href="/getMainCat">TESTLINK</a>
-</div>
+<% if (!(request.getAttribute("Sprache") == null) && request.getAttribute("Sprache").equals("en")) { %>
+<jsp:include page="WEB-INF/fragments/menu/menuen.jspf" />
+<% } else if (!(request.getAttribute("Sprache") == null) && request.getAttribute("Sprache").equals("de")) { %>
+<jsp:include page="WEB-INF/fragments/menu/menude.jspf" />
+<% } else  { %>
+<jsp:include page="WEB-INF/fragments/menu/menude.jspf" />
+<% } %>
+
+<%-- <jsp:include page="WEB-INF/fragments/slider.jspf"/> --%>
 <form action="getMediaWikiArticle" method="get">
     <div class="row">
         <h2><c:out value="${requestScope.title}"/></h2>

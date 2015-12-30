@@ -60,6 +60,8 @@ public class getSubCategory extends HttpServlet{
         request.setAttribute("img", urls);
         request.setAttribute("id", subCat);
 
+        String[] sLanguage = request.getRequestURI().split("/");
+        if (sLanguage.length > 0) request.setAttribute("Sprache", sLanguage[sLanguage.length-1]);
         getServletContext().getRequestDispatcher("/subcategory.jsp").forward(request, response);
     }
 }

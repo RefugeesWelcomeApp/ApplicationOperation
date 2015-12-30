@@ -26,6 +26,8 @@ public class getMediaWikiSearch extends HttpServlet {
             } catch (java.lang.NullPointerException ex) {
                 ;
             }
+            String[] sLanguage = request.getRequestURI().split("/");
+            if (sLanguage.length > 0) request.setAttribute("Sprache", sLanguage[sLanguage.length-1]);
             getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
         }
 
