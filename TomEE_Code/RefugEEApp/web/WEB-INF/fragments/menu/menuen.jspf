@@ -2,7 +2,7 @@
 <nav class="top-bar" data-topbar role="navigation">
     <ul class="title-area">
         <li class="name">
-            <h1><a href="/en">Startseite</a></h1>
+            <h1><a href="/w/Startseite/en">Startseite</a></h1>
         </li>
         <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
         <li class="toggle-topbar menu-icon"><a href="#"><span>Home</span></a></li>
@@ -13,7 +13,7 @@
         <ul class="left">
             <li class="divider"></li>
             <li class="has-dropdown">
-                <a href="/w/Formulare/en">forms</a>
+                <a href="/w/Formulare/en">Forms</a>
                 <ul class="dropdown">
                     <li><a href="/w/Erstantrag/en">First application</a></li>
                     <li><a href="/w/Registrierung/en">Registration</a></li>
@@ -32,37 +32,39 @@
             <li class="has-dropdown">
                 <a href="/w/das_Leben_in_Deutschland/en">Life in Deutschland</a>
                 <ul class="dropdown">
-                    <li><a href="/w/Rechtliches/en">Terms</a></li>
-                    <li><a href="/w/StVO/en">Road rules</a></li>
-                    <li><a href="/w/wichtige_Nummern/en">important numbers</a></li>
-                    <li><a href="/w/schwarzes_Brett/en">black board</a></li>
-                    <li><a href="/w/Knigge/en">Knigge</a></li>
-                    <li><a href="/w/Beschreibung_Deutschland/en">german behavior</a></li>
-                    <li><a href="/w/Umrechnungsrechner/en">Calculator (currency)</a></li>
-                    <li><a href="/w/Gesundheitsstandard/en">Health standard</a></li>
-                    <li><a href="/w/Bildung/en">Knowlege Language Work Living</a></li>
+                    <li><a href="/w/Rechtliches_ein_mal_eins">Legal</a></li>
+                    <li><a href="/w/StVO">Road traffic regulations</a></li>
+                    <li><a href="/w/H%C3%A4ufig_genutze_Rufnummern">Important phone numbers</a></li>
+                    <li><a href="/w/Aktuelles">Notice-board</a></li>
+                    <li><a href="/w/Knigge">Code of behaviour</a></li>
+                    <li><a href="/w/Beschreibung_Deutschland">General information about Germany</a></li>
+                    <li><a href="/w/Typisch_Deutsch">Typically German</a></li>
+                    <li><a href="/w/W%C3%A4hrungen,_Ma%C3%9Feinheiten_und_weiteres">Measurement Units, Currencies,...</a></li>
+                    <li><a href="/w/Gesundheit">Healthcare</a></li>
+                    <li><a href="/w/Bildung">Education, Language, Work, living</a></li>
+
                 </ul>
             </li>
             <li class="divider"></li>
             <li class="has-dropdown">
-                <a href="#">Where do I find what?</a>
+                <a href="#">Where to find what?</a>
                 <ul class="dropdown">
                     <li class="has-dropdown">
                         <a href="/w/Buecher/en" class="">Books</a>
                         <ul class="dropdown">
                             <li><a href="/w/Zeitungen/en">Newspaper</a></li>
-                            <li><a href="/w/Fachliteratur/en">Fachliteratur</a></li>
-                            <li><a href="/w/Buecher/en">etc...</a></li>
+                            <li><a href="/w/Fachliteratur/en">Literature</a></li>
+                            <li><a href="/w/Buecher/en">Books</a></li>
                         </ul>
                     </li>
                     <li><a href="/w/Essen/en">Food</a></li>
-                    <li><a href="/w/Technik/en">Technic</a></li>
+                    <li><a href="/w/Technik/en">Technology</a></li>
                     <li><a href="/w/Werkzeuge/en">Tools</a></li>
                     <li><a href="/w/Hygiene/en">Hygiene</a></li>
                 </ul>
             </li>
             <li class="divider"></li>
-            <li><a href="/w/in_meiner_Naehe/en">close to me</a></li>
+            <li><a href="/w/in_meiner_Naehe/en">About my location</a></li>
         </ul>
 
         <!-- Right Nav Section -->

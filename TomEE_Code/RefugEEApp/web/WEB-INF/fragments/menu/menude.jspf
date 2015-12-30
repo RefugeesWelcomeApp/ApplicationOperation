@@ -2,7 +2,7 @@
 <nav class="top-bar" data-topbar role="navigation">
     <ul class="title-area">
         <li class="name">
-            <h1><a href="/">Startseite</a></h1>
+            <h1><a href="/w/Startseite">Startseite</a></h1>
         </li>
         <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
         <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -74,11 +74,11 @@
                 <div class="row collapse">
                     <form id="wsearch" method="post" action="/s/de">
                     <div class="large-8 small-9 columns">
-                        <input type="text" name="Suchtext" placeholder="Find Stuff">
+                        <input type="text" name="Suchtext" placeholder="Suchtext...">
                     </div>
                     <div class="large-4 small-3 columns">
-                        <!--<a href="#" class="alert button expand">Suche</a>-->
-                        <input type="submit" value="search" class="alert button expand">
+                        <!--<a href="#" class="alert button expand">Suchen</a>-->
+                        <input type="submit" value="Suchen" class="alert button expand">
                     </div>
                     </form>
                 </div>
