@@ -30,10 +30,6 @@ public class getMediaWikiSearch extends HttpServlet {
             if (sLanguage.length > 0) request.setAttribute("Sprache", sLanguage[sLanguage.length-1]);
             getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
         }
-
-
-
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

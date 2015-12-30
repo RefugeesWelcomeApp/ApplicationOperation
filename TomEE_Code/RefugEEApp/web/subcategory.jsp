@@ -3,8 +3,7 @@
 <%@ page import="java.util.*" %>
 <jsp:include page="WEB-INF/fragments/htmlHead.jspf"/>
 <jsp:include page="WEB-INF/fragments/header.jspf"/>
-<jsp:include page="WEB-INF/fragments/menu.jspf"/>
-
+<jsp:include page="WEB-INF/fragments/menu.jsp"/>
 <h1>Sub-Produktkategorien</h1>
 
 <div class="row">
