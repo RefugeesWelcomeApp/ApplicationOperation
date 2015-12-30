@@ -53,5 +53,6 @@ public class HTTPConnect {
     private void fixContentWikiURLs(){
         content = content.replaceAll("\\/media_wiki\\/","\\/w\\/");
         content = content.replaceAll("index.php?title=","&action=edit&redlink=1");
+        content = content.replaceAll("\\/w\\/Datei:", "\\/w\\/images\\/");
     }
 }

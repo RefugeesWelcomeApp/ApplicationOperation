@@ -27,6 +27,10 @@
         <servlet-name>Proxy</servlet-name>
         <url-pattern>/media_wiki/*</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Proxy</servlet-name>
+        <url-pattern>/w/images/*</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>s1</servlet-name>

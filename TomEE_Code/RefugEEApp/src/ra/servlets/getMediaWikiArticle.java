@@ -16,7 +16,7 @@ public class getMediaWikiArticle extends HttpServlet  {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        if (request.getRequestURI().toLowerCase().endsWith(".png") && !request.getRequestURI().contains(":"))
+        if (request.getRequestURI().contains("\\/images\\/") && !request.getRequestURI().contains(":"))
         {
             getServletContext().getRequestDispatcher(request.getRequestURI().replaceFirst("/w/","/media_wiki/")).include(request, response);
         }
