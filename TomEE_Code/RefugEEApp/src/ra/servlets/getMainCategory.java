@@ -87,7 +87,6 @@ public class getMainCategory extends HttpServlet {
         request.setAttribute("img", urls);
         request.setAttribute("id", subCat);
         request.setAttribute("name", name);
-        request.setAttribute("language", languageID);
 
         String[] sLanguage = request.getRequestURI().split("/");
         if (sLanguage.length > 0) request.setAttribute("Sprache", sLanguage[sLanguage.length-1]);

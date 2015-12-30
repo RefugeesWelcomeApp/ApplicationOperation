@@ -32,7 +32,7 @@ public class getProduct extends HttpServlet{
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        int mainCatID = Integer.parseInt(request.getParameter("mainCatID").toString());
+        int subCatID = Integer.parseInt(request.getParameter("subCatID").toString());
         int languageID;
         try{
             languageID = Integer.parseInt(request.getParameter("languageID").toString());
@@ -84,7 +84,10 @@ public class getProduct extends HttpServlet{
         request.setAttribute("img", urls);
         request.setAttribute("id", subCat);
         request.setAttribute("name", name);
+        request.setAttribute("languageID",languageID);
 
+        String[] sLanguage = request.getRequestURI().split("/");
+        if (sLanguage.length > 0) request.setAttribute("Sprache", sLanguage[sLanguage.length-1]);
         getServletContext().getRequestDispatcher("/subcategory.jsp").forward(request, response);
     }
 }
