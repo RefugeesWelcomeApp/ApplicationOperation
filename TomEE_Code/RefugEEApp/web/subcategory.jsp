@@ -11,12 +11,18 @@
     <%
         List<String> img = (List<String>) request.getAttribute("img");
         List<Integer> id = (List<Integer>) request.getAttribute("id");
+        List<String> name = (List<String>) request.getAttribute("name");
+        int languageID = (int) request.getAttribute("language");
 
         int i = img.size();
 
         for (int j = 0; j<i;j++){
     %>
-    <td><img src="<%= img.get(j)%>" id="<%= id.get(j)%>" width="150" height="150" border="0" alt="<%= id.get(j)%>"></td>
+    <td>
+        <a href="/getProd?subCatID=<%= id.get(j)%>&languageID=<%=languageID%>">
+            <img src="<%= img.get(j)%>" id="<%= id.get(j)%>" width="200" height="200" border="0" alt="<%= name.get(id.get(j)-1)%>">
+        </a>
+    </td>
     <%
         }
     %>

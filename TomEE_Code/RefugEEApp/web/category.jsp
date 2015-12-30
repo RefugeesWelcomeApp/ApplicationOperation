@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="java.util.*" %>
 <jsp:include page="WEB-INF/fragments/htmlHead.jspf"/>
 <jsp:include page="WEB-INF/fragments/header.jspf"/>
@@ -7,23 +8,27 @@
 <h1>Produktkategorien</h1>
 
 <div class="row">
-<form action="getMainCat" method="get">
+    <%int languageID=1;%>
+<form action="getMainCat?languageID=<%=languageID%>" method="get">
     <%
         List<String> img = (List<String>) request.getAttribute("img");
         List<Integer> id = (List<Integer>) request.getAttribute("id");
+        List<String> name = (List<String>) request.getAttribute("name");
 
         int i = img.size();
 
         for (int j = 0; j<i;j++){
     %>
+
     <td>
-        <a href="/getSubCat?subCatID=<%= id.get(j)%>">
-        <img src="<%= img.get(j)%>" id="<%= id.get(j)%>" width="150" height="150" border="0" alt="<%= id.get(j)%>">
+        <a href="/getSubCat?mainCatID=<%= id.get(j)%>&languageID=<%=languageID%>">
+        <img src="<%=img.get(j)%>" id="<%= id.get(j)%>" width="200" height="200" border="0" alt="<%= name.get(id.get(j)-1)%>">
         </a>
     </td>
     <%
         }
     %>
+
 </form>
 </div>
 

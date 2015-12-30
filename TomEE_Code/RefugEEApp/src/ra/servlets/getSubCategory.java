@@ -1,5 +1,7 @@
 package ra.servlets;
 
+import ra.model.RltnProductCategoryLanguageEntity;
+import ra.model.RltnProductCategoryLanguageEntity_;
 import ra.model.TblProductCategoryEntity;
 import ra.model.TblProductCategoryEntity_;
 
@@ -30,7 +32,14 @@ public class getSubCategory extends HttpServlet{
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        int subCatID = Integer.parseInt(request.getParameter("subCatID").toString());
+        int mainCatID = Integer.parseInt(request.getParameter("mainCatID").toString());
+        int languageID;
+        try{
+            languageID = Integer.parseInt(request.getParameter("languageID").toString());
+        }
+        catch(NullPointerException e){
+            languageID = 1;
+        }
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("RefugEEWelcomeApp");
         EntityManager em		= emf.createEntityManager();
@@ -40,9 +49,9 @@ public class getSubCategory extends HttpServlet{
 
         Root<TblProductCategoryEntity> productCategoryEntityRoot = query.from(TblProductCategoryEntity.class);
 
-        Predicate subCatWithID = builder.equal(productCategoryEntityRoot.get(TblProductCategoryEntity_.idtblProductCategory), subCatID);
+        Predicate mainCatWithID = builder.equal(productCategoryEntityRoot.get(TblProductCategoryEntity_.maincategory), mainCatID);
 
-        query.select(productCategoryEntityRoot).where(subCatWithID);
+        query.select(productCategoryEntityRoot).where(mainCatWithID);
 
         List<TblProductCategoryEntity> results = em.createQuery(query).getResultList();
 
@@ -56,9 +65,25 @@ public class getSubCategory extends HttpServlet{
             System.out.println(e.getAttachments());
             System.out.println(e.getIdtblProductCategory());
         }
+        CriteriaQuery<RltnProductCategoryLanguageEntity> queryName = builder.createQuery(RltnProductCategoryLanguageEntity.class);
 
+        Root<RltnProductCategoryLanguageEntity> productCategoryEntityLanguageRoot = queryName.from(RltnProductCategoryLanguageEntity.class);
+
+        Predicate languageWithID = builder.equal(productCategoryEntityLanguageRoot.get(RltnProductCategoryLanguageEntity_.languageid), languageID);
+
+        queryName.select(productCategoryEntityLanguageRoot).where(languageWithID);
+
+        List<RltnProductCategoryLanguageEntity> resultsName = em.createQuery(queryName).getResultList();
+        List<String> name = new ArrayList<>();
+
+        for (Object o: resultsName){
+            RltnProductCategoryLanguageEntity e=(RltnProductCategoryLanguageEntity) o;
+            name.add(e.getTranslation());
+            System.out.println(e.getTranslation());
+        }
         request.setAttribute("img", urls);
         request.setAttribute("id", subCat);
+        request.setAttribute("name", name);
 
         String[] sLanguage = request.getRequestURI().split("/");
         if (sLanguage.length > 0) request.setAttribute("Sprache", sLanguage[sLanguage.length-1]);
