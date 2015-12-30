@@ -37,12 +37,10 @@
 
 
 
-<head>
-    <title>OpenLayers Demo</title>
     <style type="text/css">
         html, body, #basicMap {
-            width: 60%;
-            height: 60%;
+            width: 100%;
+            height: 100%;
             margin: 0;
         }
     </style>
@@ -60,7 +58,7 @@
            );
         }
     </script>
-</head>
+
 <body onload="init();">
 <div id="basicMap"></div>
 </body>

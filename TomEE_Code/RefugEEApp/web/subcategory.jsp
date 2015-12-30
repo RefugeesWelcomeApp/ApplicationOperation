@@ -7,31 +7,31 @@
 <h1>Unterproduktkategorien</h1>
 
 <div class="row">
-<form action="getSubCat" method="get">
-    <%
-        List<String> img = (List<String>) request.getAttribute("img");
-        List<Integer> id = (List<Integer>) request.getAttribute("id");
-        List<String> name = (List<String>) request.getAttribute("name");
-        int languageID = Integer.parseInt(request.getAttribute("languageID").toString());
+    <form action="getSubCat" method="get">
+        <%
+            List<String> img = (List<String>) request.getAttribute("img");
+            List<Integer> id = (List<Integer>) request.getAttribute("id");
+            List<String> name = (List<String>) request.getAttribute("name");
+            int languageID = Integer.parseInt(request.getAttribute("languageID").toString());
 
-        int i = img.size();
+            int i = img.size();
 
-        for (int j = 0; j<i;j++){
-    %>
-    <td>
-        <a href="/getProd?subCatID=<%= id.get(j)%>&languageID=<%=languageID%>">
-            <img src="<%=img.get(j)%>" id="<%= id.get(j)%>" width="200" height="200" border="0" onError='this.src="resources/img/404.png";'>
-        </a>
+            for (int j = 0; j<i;j++){
+        %>
+        <td>
+            <a href="/getProd?subCatID=<%= id.get(j)%>&languageID=<%=languageID%>">
+                <img src="<%=img.get(j)%>" id="<%= id.get(j)%>" width="200" height="200" border="0" onError='this.src="resources/img/404.png";'>
+            </a>
 
-        <a href="/getProd?subCatID=<%= id.get(j)%>&languageID=<%=languageID%>">
-            <%=name.get(id.get(j)-1)%>
-            <br><br>
+            <a href="/getProd?subCatID=<%= id.get(j)%>&languageID=<%=languageID%>">
+                <%=name.get(id.get(j)-1)%>
+                <br><br>
 
-        </a>
-    </td>
-    <%
-        }
-    %>
-</form>
+            </a>
+        </td>
+        <%
+            }
+        %>
+    </form>
 </div>
 <jsp:include page="WEB-INF/fragments/footer.jspf"/>
