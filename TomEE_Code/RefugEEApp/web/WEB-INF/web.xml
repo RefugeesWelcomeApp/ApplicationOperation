@@ -52,6 +52,16 @@
         <url-pattern>/s/*</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>s3</servlet-name>
+        <servlet-class>ra.servlets.getMainCategory</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>s3</servlet-name>
+        <url-pattern>/getMainCat/*</url-pattern>
+    </servlet-mapping>
+
 
     <!--
 

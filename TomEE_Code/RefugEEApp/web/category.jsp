@@ -23,7 +23,7 @@
     <td>
         <a href="/getSubCat?mainCatID=<%= id.get(j)%>&languageID=<%=languageID%>">
 
-            <img src="<%=img.get(j)%>" id="<%= id.get(j)%>" width="200" height="200" border="0" onError='this.src="resources/img/404.png";'>
+            <img src="/<%=img.get(j)%>" id="<%= id.get(j)%>" width="200" height="200" border="0" onError='this.src="/resources/img/404.png";'>
 
         </a>
 
