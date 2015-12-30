@@ -3,12 +3,12 @@
         <a href="/w/Startseite">
             <img src="/resources/img/header_logo.png" alt="Welcome Refugees Information Portal!">
         </a>
-        <ul class="inline-list right">
+        <div class="inline-list right">
             <select name="Language selection" onChange="window.location.href=this.value">
                 <option selected disabled style="display:none;">Language&nbsp;&nbsp;&nbsp;</option>
                 <option value="/w/Startseite">Deutsch</option>
                 <option value="/w/Startseite/en">English</option>
             </select>
-        </ul>
+        </div>
     </div>
 </div>
