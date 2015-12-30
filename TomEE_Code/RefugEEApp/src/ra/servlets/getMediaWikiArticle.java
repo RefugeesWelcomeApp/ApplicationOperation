@@ -27,7 +27,7 @@ public class getMediaWikiArticle extends HttpServlet  {
             HTTPConnect con = new HTTPConnect("https://ddc.derpy.ws/media_wiki" + WikiURL, request.getHeader("user-agent"));
 
             try {
-                JSON json = new JSON(con.getContent());
+                JSON json = new JSON(con.getContent(), false);
 
                 request.setAttribute("title", json.getTitleStr());
                 request.setAttribute("text", json.getTextStr());
