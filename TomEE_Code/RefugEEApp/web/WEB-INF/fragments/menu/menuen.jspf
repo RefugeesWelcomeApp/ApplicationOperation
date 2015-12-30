@@ -32,22 +32,22 @@
             <li class="has-dropdown">
                 <a href="/w/das_Leben_in_Deutschland/en">Life in Deutschland</a>
                 <ul class="dropdown">
-                    <li><a href="/w/Rechtliches_ein_mal_eins">Legal</a></li>
-                    <li><a href="/w/StVO">Road traffic regulations</a></li>
-                    <li><a href="/w/H%C3%A4ufig_genutze_Rufnummern">Important phone numbers</a></li>
-                    <li><a href="/w/Aktuelles">Notice-board</a></li>
-                    <li><a href="/w/Knigge">Code of behaviour</a></li>
-                    <li><a href="/w/Beschreibung_Deutschland">General information about Germany</a></li>
-                    <li><a href="/w/Typisch_Deutsch">Typically German</a></li>
-                    <li><a href="/w/W%C3%A4hrungen,_Ma%C3%9Feinheiten_und_weiteres">Measurement Units, Currencies,...</a></li>
-                    <li><a href="/w/Gesundheit">Healthcare</a></li>
-                    <li><a href="/w/Bildung">Education, Language, Work, living</a></li>
+                    <li><a href="/w/Rechtliches_ein_mal_eins/en">Legal</a></li>
+                    <li><a href="/w/StVO/en">Road traffic regulations</a></li>
+                    <li><a href="/w/H%C3%A4ufig_genutze_Rufnummern/en">Important phone numbers</a></li>
+                    <li><a href="/w/Aktuelles/en">Notice-board</a></li>
+                    <li><a href="/w/Knigge/en">Code of behaviour</a></li>
+                    <li><a href="/w/Beschreibung_Deutschland/en">General information about Germany</a></li>
+                    <li><a href="/w/Typisch_Deutsch/en">Typically German</a></li>
+                    <li><a href="/w/W%C3%A4hrungen,_Ma%C3%9Feinheiten_und_weiteres/en">Measurement Units, Currencies,...</a></li>
+                    <li><a href="/w/Gesundheit/en">Healthcare</a></li>
+                    <li><a href="/w/Bildung/en">Education, Language, Work, living</a></li>
 
                 </ul>
             </li>
             <li class="divider"></li>
             <li class="has-dropdown">
-                <a href="#">Where to find what?</a>
+                <a href="/getMainCat/en">Where to find what?</a>
                 <ul class="dropdown">
                     <li class="has-dropdown">
                         <a href="/w/Buecher/en" class="">Books</a>

@@ -46,7 +46,7 @@
             </li>
             <li class="divider"></li>
             <li class="has-dropdown">
-                <a href="/getMainCat">Wo finde ich was?</a>
+                <a href="/getMainCat/de">Wo finde ich was?</a>
                 <ul class="dropdown">
                     <li class="has-dropdown">
                         <a href="/w/Buecher" class="">B&uuml;cher</a>
