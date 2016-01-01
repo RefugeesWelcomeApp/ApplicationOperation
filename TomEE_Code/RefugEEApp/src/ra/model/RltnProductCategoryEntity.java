@@ -9,8 +9,8 @@ import javax.persistence.*;
 @Table(name = "rltn_product_category", schema = "RefugeesWelcomeApp", catalog = "")
 @IdClass(RltnProductCategoryEntityPK.class)
 public class RltnProductCategoryEntity {
-    private int product;
     private int category;
+    private int product;
 
     @Id
     @Column(name = "product")

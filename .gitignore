@@ -1,7 +1,6 @@
 target/
 _windows/
 .idea/
-generated/
 META-INF/
 out/
 pom.xml.tag
