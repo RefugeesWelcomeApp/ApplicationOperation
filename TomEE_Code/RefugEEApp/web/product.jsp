@@ -30,11 +30,6 @@
     <%
         }
     %>
-</form>
-</div>
-
-
-
 
 
     <style type="text/css">
@@ -50,17 +45,32 @@
             map = new OpenLayers.Map("basicMap");
             var mapnik = new OpenLayers.Layer.OSM();
             map.addLayer(mapnik);
-            map.setCenter(new OpenLayers.LonLat(13.41,52.52) // Center of the map
-                   .transform(
-                           new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+            map.setCenter(new OpenLayers.LonLat(10.459,51.097) // Center of the map
+                    .transform(
+                            new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
                             new OpenLayers.Projection("EPSG:900913") // to Spherical Mercator Projection
-                    ), 15 // Zoom level
-           );
+                    ), 6 // Zoom level
+            );
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            }
         }
+        function showPosition(position) {
+            map.setCenter(new OpenLayers.LonLat(position.coords.longitude,position.coords.latitude) // Center of the map
+                    .transform(
+                            new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+                            new OpenLayers.Projection("EPSG:900913") // to Spherical Mercator Projection
+                    ), 12 // Zoom level
+            );
+        }
+
+        init();
     </script>
 
-<body onload="init();">
-<div id="basicMap"></div>
-</body>
+    <body onload="init();">
+    <div id="basicMap" style="height:500px;width:50%"></div>
+    </body>
+</form>
+</div>
 
 <jsp:include page="WEB-INF/fragments/footer.jspf"/>

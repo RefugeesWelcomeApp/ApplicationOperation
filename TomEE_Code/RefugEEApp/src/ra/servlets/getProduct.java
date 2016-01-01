@@ -25,6 +25,9 @@ import java.util.List;
 public class getProduct extends HttpServlet{
     private static final long serialVersionUID = 1L;
 
+    @javax.persistence.PersistenceContext(unitName="RefugEEWelcomeApp")
+    private EntityManager em;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -38,8 +41,6 @@ public class getProduct extends HttpServlet{
             languageID = 1;
         }
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("RefugEEWelcomeApp");
-        EntityManager em		= emf.createEntityManager();
         CriteriaBuilder builder = em.getCriteriaBuilder();
 
         CriteriaQuery<RltnProductCategoryEntity> query = builder.createQuery(RltnProductCategoryEntity.class);

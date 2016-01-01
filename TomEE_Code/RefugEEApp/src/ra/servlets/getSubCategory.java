@@ -44,8 +44,6 @@ public class getSubCategory extends HttpServlet{
             languageID = 1;
         }
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("RefugEEWelcomeApp");
-
         CriteriaBuilder builder = em.getCriteriaBuilder();
 
         CriteriaQuery<TblProductCategoryEntity> query = builder.createQuery(TblProductCategoryEntity.class);
