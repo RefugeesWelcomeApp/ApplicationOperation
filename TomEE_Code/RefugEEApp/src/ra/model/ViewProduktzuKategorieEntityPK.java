@@ -10,8 +10,9 @@ import java.io.Serializable;
 public class ViewProduktzuKategorieEntityPK implements Serializable {
     private int idtblProductCategory;
     private int idtblLanguage;
-    private String translation;
     private int category;
+    private String translation;
+
 
     @Column(name = "idtbl_product_category")
     @Id
