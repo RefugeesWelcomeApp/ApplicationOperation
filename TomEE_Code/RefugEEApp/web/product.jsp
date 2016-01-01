@@ -12,7 +12,7 @@
 
         List<Integer> prodID = (List<Integer>) request.getAttribute("productID");
         List<String> prodName = (List<String>) request.getAttribute("productName");
-        List<String> shopCatID = (List<String>) request.getAttribute("shopCatID");
+        List<Integer> shopCatID = (List<Integer>) request.getAttribute("shopCatID");
         List<String> shopCatName = (List<String>) request.getAttribute("shopCatName");
 
 
@@ -20,14 +20,29 @@
         int i = prodID.size();
 
         for (int j = 0; j<i;j++){
-    %>
-    <td>
-            <%=prodName.get(prodID.get(j)-1)%>
-            <br><br>
-
-        </a>
-    </td>
-    <%
+            %>
+                <td>
+                    <% if (prodID.get(j) > (prodName.size()-1)) { %>
+                    Error: bad product id in database: <%=prodID.get(j)%>
+                    <% } else  { %>
+                    <%=prodName.get(prodID.get(j)-1)%>
+                    <% } %>
+                    <br><br>
+                </td>
+            <%
+        };
+                i = shopCatID.size();
+                for (int j = 0; j<i;j++){
+            %>
+            <td>
+                <% if (shopCatID.get(j) > (shopCatName.size()-1)) { %>
+                Error: bad product id in database: <%=shopCatID.get(j)%>
+                <% } else  { %>
+                <%=shopCatName.get(shopCatID.get(j)-1)%>
+                <% } %>
+                <br><br>
+            </td>
+            <%
         }
     %>
 
