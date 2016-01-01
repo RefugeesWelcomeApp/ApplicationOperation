@@ -4,9 +4,9 @@
 <jsp:include page="WEB-INF/fragments/htmlHead.jspf"/>
 <jsp:include page="WEB-INF/fragments/header.jspf"/>
 <jsp:include page="WEB-INF/fragments/menu.jsp"/>
-<h1>Produkte</h1>
 
 <div class="row">
+    <h1>Produkte</h1>
 <form action="getProd" method="get">
     <%
 

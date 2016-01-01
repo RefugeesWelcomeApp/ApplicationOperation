@@ -5,9 +5,9 @@
 <jsp:include page="WEB-INF/fragments/htmlHead.jspf"/>
 <jsp:include page="WEB-INF/fragments/header.jspf"/>
 <jsp:include page="WEB-INF/fragments/menu.jsp"/>
-<h1>Produktkategorien</h1>
 
 <div class="row">
+    <h1>Produktkategorien</h1>
     <%int languageID=1;%>
 <form action="getMainCat?languageID=<%=languageID%>" method="get">
     <%

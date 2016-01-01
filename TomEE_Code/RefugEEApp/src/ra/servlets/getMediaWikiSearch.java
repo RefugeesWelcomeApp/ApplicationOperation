@@ -22,17 +22,17 @@ public class getMediaWikiSearch extends HttpServlet {
 
                 request.setAttribute("title", sSuchtext);
                 request.setAttribute("text", json.getTextStr());
-                System.out.println(json.getTextStr());
-            } catch (java.lang.NullPointerException ex) {
-                ;
-            }
-            String[] sLanguage = request.getRequestURI().split("/");
-            if (sLanguage.length > 0) request.setAttribute("Sprache", sLanguage[sLanguage.length-1]);
-            getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+  System.out.println(json.getTextStr());
+        } catch (java.lang.NullPointerException ex) {
+        ;
         }
-    }
+        String[] sLanguage = request.getRequestURI().split("/");
+        if (sLanguage.length > 0) request.setAttribute("Sprache", sLanguage[sLanguage.length-1]);
+        getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+        }
+        }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    }
-}
+        }
+        }
