@@ -93,19 +93,19 @@ public class getProduct extends HttpServlet{
             shopCatID.add(e.getShopCategory());
             System.out.println(e.getShopCategory());
         }
-        CriteriaQuery<RltnProductCategoryLanguageEntity> queryShopCatName = builder.createQuery(RltnProductCategoryLanguageEntity.class);
+        CriteriaQuery<RltnShopCategoryLanguageEntity> queryShopCatName = builder.createQuery(RltnShopCategoryLanguageEntity.class);
 
-        Root<RltnProductCategoryLanguageEntity> shopCatEntityLanguageRoot = queryShopCatName.from(RltnProductCategoryLanguageEntity.class);
+        Root<RltnShopCategoryLanguageEntity> shopCatEntityLanguageRoot = queryShopCatName.from(RltnShopCategoryLanguageEntity.class);
 
-        Predicate languageShopCatWithID = builder.equal(shopCatEntityLanguageRoot.get(RltnProductCategoryLanguageEntity_.languageid), languageID);
+        Predicate languageShopCatWithID = builder.equal(shopCatEntityLanguageRoot.get(RltnShopCategoryLanguageEntity_.languageid), languageID);
 
         queryShopCatName.select(shopCatEntityLanguageRoot).where(languageShopCatWithID);
 
-        List<RltnProductCategoryLanguageEntity> resultsShopCatName = em.createQuery(queryShopCatName).getResultList();
+        List<RltnShopCategoryLanguageEntity> resultsShopCatName = em.createQuery(queryShopCatName).getResultList();
         List<String> shopCatName = new ArrayList<>();
 
         for (Object o: resultsShopCatName){
-            RltnProductCategoryLanguageEntity e=(RltnProductCategoryLanguageEntity) o;
+            RltnShopCategoryLanguageEntity e=(RltnShopCategoryLanguageEntity) o;
             shopCatName.add(e.getTranslation());
             System.out.println(e.getTranslation());
         }
