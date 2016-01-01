@@ -6,8 +6,9 @@
 <jsp:include page="WEB-INF/fragments/menu.jsp"/>
 
 <div class="row">
-    <h1>Produkte</h1>
 <form action="getProd" method="get">
+    <h1>Produkte:&nbsp;<%=request.getAttribute("subCatName")%></h1>
+
     <%
 
         List<Integer> prodID = (List<Integer>) request.getAttribute("productID");
@@ -30,8 +31,9 @@
                     <br><br>
                 </td>
             <%
-        };
-                i = shopCatID.size();
+        };%>
+    <h3>Diese Produkte sind verf&uuml;gbar in folgenden Gesch&auml;ften:</h3>
+                <%i = shopCatID.size();
                 for (int j = 0; j<i;j++){
             %>
             <td>

@@ -115,9 +115,26 @@ public class getProduct extends HttpServlet{
         request.setAttribute("shopCatID", shopCatID);
         request.setAttribute("shopCatName", shopCatName);
         request.setAttribute("languageID",languageID);
+        request.setAttribute("subCatName", getSubCategoryNameFromID(subCatID, languageID));
 
         String[] sLanguage = request.getRequestURI().split("/");
         if (sLanguage.length > 0) request.setAttribute("Sprache", sLanguage[sLanguage.length-1]);
         getServletContext().getRequestDispatcher("/product.jsp").forward(request, response);
+    }
+
+    private String getSubCategoryNameFromID(Integer SubCatID, Integer LanguageID){
+        CriteriaBuilder builder = em.getCriteriaBuilder();
+        CriteriaQuery<RltnProductCategoryLanguageEntity> queryName = builder.createQuery(RltnProductCategoryLanguageEntity.class);
+        Root<RltnProductCategoryLanguageEntity> productCategoryEntityLanguageRoot = queryName.from(RltnProductCategoryLanguageEntity.class);
+        Predicate languageWithID = builder.equal(productCategoryEntityLanguageRoot.get(RltnProductCategoryLanguageEntity_.languageid), LanguageID);
+        queryName.select(productCategoryEntityLanguageRoot).where(languageWithID);
+        List<RltnProductCategoryLanguageEntity> resultsName = em.createQuery(queryName).getResultList();
+        List<String> name = new ArrayList<>();
+        for (Object o: resultsName){
+            RltnProductCategoryLanguageEntity e=(RltnProductCategoryLanguageEntity) o;
+            name.add(e.getTranslation());
+            System.out.println(e.getTranslation());
+        }
+        return name.get(SubCatID-1);
     }
 }
