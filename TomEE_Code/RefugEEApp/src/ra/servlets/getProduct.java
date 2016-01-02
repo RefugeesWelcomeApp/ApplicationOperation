@@ -107,6 +107,7 @@ public class getProduct extends HttpServlet{
         request.setAttribute("shopCatID", shopCatID);
         request.setAttribute("shopCatName", shopCatName);
         request.setAttribute("languageID",languageID);
+        request.setAttribute("OSM",OSM);
         request.setAttribute("subCatName", getSubCategoryNameFromID(subCatID, languageID));
 
         String[] sLanguage = request.getRequestURI().split("/");
