@@ -55,8 +55,14 @@ public class getProduct extends HttpServlet{
         List<ViewProduktZuKategorieEntity> results = em.createQuery(query).getResultList();
 
         List<Integer> prodID = new ArrayList<>();
-        List<Integer> productName = new ArrayList<>();
-
+        List<String> productName = new ArrayList<>();
+        for (Object o: results) {
+            ViewProduktZuKategorieEntity e = (ViewProduktZuKategorieEntity) o;
+            productName.add(e.getTranslation());
+            prodID.add(e.getIdProdukt());
+            System.out.println(e.getIdProdukt());
+            System.out.println(e.getTranslation());
+        }
 
 
         CriteriaQuery<RltnProductCategoryShopCategoryEntity> queryShopCats = builder.createQuery(RltnProductCategoryShopCategoryEntity.class);
