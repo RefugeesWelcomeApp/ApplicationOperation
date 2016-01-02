@@ -139,9 +139,9 @@ public class getProduct extends HttpServlet{
         List<TblShopCategoryEntity> resultsName = em.createQuery(queryName).getResultList();
         List<String> name = new ArrayList<>();
         for (Object o : resultsName) {
-            RltnProductCategoryLanguageEntity e = (RltnProductCategoryLanguageEntity) o;
-            name.add(e.getTranslation());
-            System.out.println(e.getTranslation());
+            TblShopCategoryEntity e = (TblShopCategoryEntity) o;
+            name.add(e.getOsmBezeichner());
+            System.out.println(e.getOsmBezeichner());
         }
         return name.get(0);
     }
