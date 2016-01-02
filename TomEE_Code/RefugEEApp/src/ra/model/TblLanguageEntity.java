@@ -11,7 +11,6 @@ public class TblLanguageEntity {
     private int idtblLanguage;
     private String language;
     private String nativelanguage;
-    private String URL;
 
     @Id
     @Column(name = "idtbl_language")
@@ -34,16 +33,6 @@ public class TblLanguageEntity {
     }
 
     @Basic
-    @Column(name = "URL")
-    public String getURL() {
-        return URL;
-    }
-
-    public void setURL(String URL) {
-        this.URL = URL;
-    }
-
-    @Basic
     @Column(name = "nativelanguage")
     public String getNativelanguage() {
         return nativelanguage;
@@ -62,7 +51,6 @@ public class TblLanguageEntity {
 
         if (idtblLanguage != that.idtblLanguage) return false;
         if (language != null ? !language.equals(that.language) : that.language != null) return false;
-        if (URL != null ? !URL.equals(that.URL) : that.URL != null) return false;
         if (nativelanguage != null ? !nativelanguage.equals(that.nativelanguage) : that.nativelanguage != null)
             return false;
 
@@ -73,7 +61,6 @@ public class TblLanguageEntity {
     public int hashCode() {
         int result = idtblLanguage;
         result = 31 * result + (language != null ? language.hashCode() : 0);
-        result = 31 * result + (URL != null ? URL.hashCode() : 0);
         result = 31 * result + (nativelanguage != null ? nativelanguage.hashCode() : 0);
         return result;
     }

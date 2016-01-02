@@ -1,47 +1,27 @@
 package ra.model;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
- * Created by hinata2712 on 15/12/30.
+ * Created by hinata2712 on 16/01/02.
  */
-public class ViewProduktzuKategorieEntityPK implements Serializable {
-    private int idtblProductCategory;
+public class ViewProduktZuKategorieEntityPK implements Serializable {
+    private int idProdukt;
+    private String translation;
     private int idtblLanguage;
     private int category;
-    private String translation;
 
-
-    @Column(name = "idtbl_product_category")
+    @Column(name = "idProdukt")
     @Id
-    public int getcategory() {
-        return category;
+    public int getIdProdukt() {
+        return idProdukt;
     }
 
-    public void setcategory(int category) {
-        this.category = category;
-    }
-
-    @Column(name = "idtbl_product_category")
-    @Id
-    public int getIdtblProductCategory() {
-        return idtblProductCategory;
-    }
-
-    public void setIdtblProductCategory(int idtblProductCategory) {
-        this.idtblProductCategory = idtblProductCategory;
-    }
-
-    @Column(name = "idtbl_language")
-    @Id
-    public int getIdtblLanguage() {
-        return idtblLanguage;
-    }
-
-    public void setIdtblLanguage(int idtblLanguage) {
-        this.idtblLanguage = idtblLanguage;
+    public void setIdProdukt(int idProdukt) {
+        this.idProdukt = idProdukt;
     }
 
     @Column(name = "translation")
@@ -54,14 +34,35 @@ public class ViewProduktzuKategorieEntityPK implements Serializable {
         this.translation = translation;
     }
 
+    @Column(name = "idtbl_language")
+    @Id
+    public int getIdtblLanguage() {
+        return idtblLanguage;
+    }
+
+    public void setIdtblLanguage(int idtblLanguage) {
+        this.idtblLanguage = idtblLanguage;
+    }
+
+    @Column(name = "category")
+    @Id
+
+    public int getCategory() {
+        return category;
+    }
+
+    public void setCategory(int category) {
+        this.category = category;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ViewProduktzuKategorieEntityPK that = (ViewProduktzuKategorieEntityPK) o;
+        ViewProduktZuKategorieEntityPK that = (ViewProduktZuKategorieEntityPK) o;
 
-        if (idtblProductCategory != that.idtblProductCategory) return false;
+        if (idProdukt != that.idProdukt) return false;
         if (idtblLanguage != that.idtblLanguage) return false;
         if (category != that.category) return false;
         return translation.equals(that.translation);
@@ -70,10 +71,10 @@ public class ViewProduktzuKategorieEntityPK implements Serializable {
 
     @Override
     public int hashCode() {
-        int result = idtblProductCategory;
+        int result = idProdukt;
+        result = 31 * result + translation.hashCode();
         result = 31 * result + idtblLanguage;
         result = 31 * result + category;
-        result = 31 * result + translation.hashCode();
         return result;
     }
 }

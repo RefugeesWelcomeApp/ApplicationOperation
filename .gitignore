@@ -2,6 +2,7 @@ target/
 _windows/
 .idea/
 META-INF/
+generated/
 out/
 pom.xml.tag
 pom.xml.releaseBackup
