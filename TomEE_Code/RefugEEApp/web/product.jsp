@@ -38,11 +38,7 @@
                 for (int j = 0; j<i;j++){
             %>
             <td>
-                <% if (prodID.get(j) > (prodName.size()-1)) { %>
-                Error: bad product id in database: <%=prodID.get(j)%>
-                <% } else  { %>
-                <%=prodName.get(prodID.get(j)-1)%>
-                <% } %>
+                 <%=prodName.get(j)%>
                 <br>
             </td>
             <%};%>

@@ -49,17 +49,17 @@
                 <a href="/getMainCat/de">Wo finde ich was?</a>
                 <ul class="dropdown">
                     <li class="has-dropdown">
-                        <a href="/w/Buecher" class="">B&uuml;cher</a>
+                        <a href="/getSubCat?mainCatID=35&languageID=1" class="">Printmedien</a>
                         <ul class="dropdown">
-                            <li><a href="/w/Zeitungen">Zeitungen</a></li>
-                            <li><a href="/w/Fachliteratur">Fachliteratur</a></li>
-                            <li><a href="/w/Buecher">etc...</a></li>
+                            <li><a href="/getProd?subCatID=36&languageID=1">B&uuml;cher</a></li>
+                            <li><a href="/getProd?subCatID=38&languageID=1">Zeitungen</a></li>
+                            <li><a href="/getProd?subCatID=37&languageID=1">Schreibwaren</a></li>
                         </ul>
                     </li>
-                    <li><a href="/w/Essen">Essen</a></li>
-                    <li><a href="/w/Technik">Technik</a></li>
-                    <li><a href="/w/Werkzeuge">Werkzeuge</a></li>
-                    <li><a href="/w/Hygiene">Hygiene</a></li>
+                    <li><a href="/getSubCat?mainCatID=21&languageID=1">Essen</a></li>
+                    <li><a href="/getSubCat?mainCatID=39&languageID=1">Technik</a></li>
+                    <li><a href="/getProd?subCatID=14&languageID=1">Werkzeuge</a></li>
+                    <li><a href="/getSubCat?mainCatID=15&languageID=1">Hygiene</a></li>
 
 
                 </ul>
