@@ -3,12 +3,12 @@ package ra.model;
 import javax.persistence.*;
 
 /**
- * Created by hinata2712 on 15/12/30.
+ * Created by hinata2712 on 16/01/02.
  */
 @Entity
 @Table(name = "View_Produkt_zu_kategorie", schema = "RefugeesWelcomeApp", catalog = "")
-@IdClass(ViewProduktzuKategorieEntityPK.class)
-public class ViewProduktzuKategorieEntity {
+@IdClass(ViewProduktZuKategorieEntityPK.class)
+public class ViewProduktZuKategorieEntity {
     private int idProdukt;
     private String translation;
     private int idtblLanguage;
@@ -22,16 +22,6 @@ public class ViewProduktzuKategorieEntity {
 
     public void setIdProdukt(int idProdukt) {
         this.idProdukt = idProdukt;
-    }
-
-    @Id
-    @Column(name = "category", nullable = false)
-    public int getcategory() {
-        return category;
-    }
-
-    public void setcategory(int category) {
-        this.category = category;
     }
 
     @Id
@@ -54,16 +44,26 @@ public class ViewProduktzuKategorieEntity {
         this.idtblLanguage = idtblLanguage;
     }
 
+    @Id
+    @Column(name = "category", nullable = false)
+    public int getCategory() {
+        return category;
+    }
+
+    public void setCategory(int category) {
+        this.category = category;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ViewProduktzuKategorieEntity that = (ViewProduktzuKategorieEntity) o;
+        ViewProduktZuKategorieEntity that = (ViewProduktZuKategorieEntity) o;
 
         if (idProdukt != that.idProdukt) return false;
-        if (category != that.category) return false;
         if (idtblLanguage != that.idtblLanguage) return false;
+        if (category != that.category) return false;
         if (translation != null ? !translation.equals(that.translation) : that.translation != null) return false;
 
         return true;
