@@ -43,39 +43,21 @@ public class getProduct extends HttpServlet{
 
         CriteriaBuilder builder = em.getCriteriaBuilder();
 
-        CriteriaQuery<RltnProductCategoryEntity> query = builder.createQuery(RltnProductCategoryEntity.class);
+        CriteriaQuery<ViewProduktZuKategorieEntity> query = builder.createQuery(ViewProduktZuKategorieEntity.class);
 
-        Root<RltnProductCategoryEntity> productCategoryRelRoot = query.from(RltnProductCategoryEntity.class);
+        Root<ViewProduktZuKategorieEntity> ProdzuCatRoot = query.from(ViewProduktZuKategorieEntity.class);
 
-        Predicate subCatWithID = builder.equal(productCategoryRelRoot.get(RltnProductCategoryEntity_.category), subCatID);
+        Predicate subCatWithID = builder.equal(ProdzuCatRoot.get(ViewProduktZuKategorieEntity_.category), subCatID);
+        Predicate LangWithID = builder.equal(ProdzuCatRoot.get(ViewProduktZuKategorieEntity_.idtblLanguage), languageID);
 
-        query.select(productCategoryRelRoot).where(subCatWithID);
+        query.select(ProdzuCatRoot).where(subCatWithID,LangWithID);
 
-        List<RltnProductCategoryEntity> results = em.createQuery(query).getResultList();
+        List<ViewProduktZuKategorieEntity> results = em.createQuery(query).getResultList();
 
         List<Integer> prodID = new ArrayList<>();
+        List<Integer> productName = new ArrayList<>();
 
-        for (Object o: results){
-            RltnProductCategoryEntity e=(RltnProductCategoryEntity) o;
-            prodID.add(e.getProduct());
-            System.out.println(e.getProduct());
-        }
-        CriteriaQuery<RltnProductLanguageEntity> queryName = builder.createQuery(RltnProductLanguageEntity.class);
 
-        Root<RltnProductLanguageEntity> productEntityLanguageRoot = queryName.from(RltnProductLanguageEntity.class);
-
-        Predicate languageWithID = builder.equal(productEntityLanguageRoot.get(RltnProductLanguageEntity_.languageid), languageID);
-
-        queryName.select(productEntityLanguageRoot).where(languageWithID);
-
-        List<RltnProductLanguageEntity> resultsName = em.createQuery(queryName).getResultList();
-        List<String> productName = new ArrayList<>();
-
-        for (Object o: resultsName){
-            RltnProductLanguageEntity e=(RltnProductLanguageEntity) o;
-            productName.add(e.getTranslation());
-            System.out.println(e.getTranslation());
-        }
 
         CriteriaQuery<RltnProductCategoryShopCategoryEntity> queryShopCats = builder.createQuery(RltnProductCategoryShopCategoryEntity.class);
 
