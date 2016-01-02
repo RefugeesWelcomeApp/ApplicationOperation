@@ -7,7 +7,7 @@
 
 <div class="row">
 <form action="getProd" method="get">
-    <h1>Produkte:&nbsp;<%=request.getAttribute("subCatName")%></h1>
+    <h1><%=request.getAttribute("subCatName")%></h1>
 
     <%
 
@@ -18,35 +18,34 @@
 
 
         int languageID = Integer.parseInt(request.getAttribute("languageID").toString());
-        int i = prodID.size();
-
+        int i = shopCatID.size();
         for (int j = 0; j<i;j++){
-            %>
-                <td>
-                    <% if (prodID.get(j) > (prodName.size()-1)) { %>
-                    Error: bad product id in database: <%=prodID.get(j)%>
-                    <% } else  { %>
-                    <%=prodName.get(prodID.get(j)-1)%>
-                    <% } %>
-                    <br><br>
-                </td>
-            <%
+    %>
+    <td>
+        <% if (shopCatID.get(j) > (shopCatName.size()-1)) { %>
+        Error: bad product id in database: <%=shopCatID.get(j)%>
+        <% } else  { %>
+        <%=shopCatName.get(shopCatID.get(j)-1)%>
+        <% } %>
+        <br>
+    </td>
+    <%
         };%>
-    <h3>Diese Produkte sind verf&uuml;gbar in folgenden Gesch&auml;ften:</h3>
-                <%i = shopCatID.size();
+    <h3>In diesen Gesch&auml;ften gibt es unter anderem folgende Produkte:</h3>
+                <%
+                i = prodID.size();
+
                 for (int j = 0; j<i;j++){
             %>
             <td>
-                <% if (shopCatID.get(j) > (shopCatName.size()-1)) { %>
-                Error: bad product id in database: <%=shopCatID.get(j)%>
+                <% if (prodID.get(j) > (prodName.size()-1)) { %>
+                Error: bad product id in database: <%=prodID.get(j)%>
                 <% } else  { %>
-                <%=shopCatName.get(shopCatID.get(j)-1)%>
+                <%=prodName.get(prodID.get(j)-1)%>
                 <% } %>
-                <br><br>
+                <br>
             </td>
-            <%
-        }
-    %>
+            <%};%>
 
 
     <style type="text/css">
