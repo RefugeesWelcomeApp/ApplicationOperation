@@ -15,6 +15,7 @@
         List<String> prodName = (List<String>) request.getAttribute("productName");
         List<Integer> shopCatID = (List<Integer>) request.getAttribute("shopCatID");
         List<String> shopCatName = (List<String>) request.getAttribute("shopCatName");
+        List<String> OSM=(List<String>) request.getAttribute("OSM");
 
 
         int languageID = Integer.parseInt(request.getAttribute("languageID").toString());
@@ -25,11 +26,12 @@
         <% if (shopCatID.get(j) > (shopCatName.size())) { %>
         Error: bad product id in database: <%=shopCatID.get(j)%>
         <% } else  { %>
-        <%=shopCatName.get(shopCatID.get(j)-1)%>
+        <%=shopCatName.get(shopCatID.get(j)-1)+ " - " + shopCatName.get(j) %>
         <% } %>
         <br>
     </td>
     <%
+
         };%>
     <h3>In diesen Gesch&auml;ften gibt es unter anderem folgende Produkte:</h3>
                 <%

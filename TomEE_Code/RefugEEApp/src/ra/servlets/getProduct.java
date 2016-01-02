@@ -81,6 +81,8 @@ public class getProduct extends HttpServlet{
             shopCatID.add(e.getShopCategory());
             System.out.println(e.getShopCategory());
         }
+
+
         CriteriaQuery<RltnShopCategoryLanguageEntity> queryShopCatName = builder.createQuery(RltnShopCategoryLanguageEntity.class);
 
         Root<RltnShopCategoryLanguageEntity> shopCatEntityLanguageRoot = queryShopCatName.from(RltnShopCategoryLanguageEntity.class);
@@ -91,10 +93,12 @@ public class getProduct extends HttpServlet{
 
         List<RltnShopCategoryLanguageEntity> resultsShopCatName = em.createQuery(queryShopCatName).getResultList();
         List<String> shopCatName = new ArrayList<>();
+        List<String> OSM = new ArrayList<>();
 
         for (Object o: resultsShopCatName){
             RltnShopCategoryLanguageEntity e=(RltnShopCategoryLanguageEntity) o;
             shopCatName.add(e.getTranslation());
+            OSM.add(getOSM(e.getShopCategory()));
             System.out.println(e.getTranslation());
         }
 
@@ -124,5 +128,22 @@ public class getProduct extends HttpServlet{
             System.out.println(e.getTranslation());
         }
         return name.get(SubCatID-1);
+
     }
+    private String getOSM(Integer ShopCatID) {
+        CriteriaBuilder builder = em.getCriteriaBuilder();
+        CriteriaQuery<TblShopCategoryEntity> queryName = builder.createQuery(TblShopCategoryEntity.class);
+        Root<TblShopCategoryEntity> ShopCatOSMRoot = queryName.from(TblShopCategoryEntity.class);
+        Predicate ShopCatWithID = builder.equal(ShopCatOSMRoot.get(TblShopCategoryEntity_.idtblShopCategory), ShopCatID);
+        queryName.select(ShopCatOSMRoot).where(ShopCatWithID);
+        List<TblShopCategoryEntity> resultsName = em.createQuery(queryName).getResultList();
+        List<String> name = new ArrayList<>();
+        for (Object o : resultsName) {
+            RltnProductCategoryLanguageEntity e = (RltnProductCategoryLanguageEntity) o;
+            name.add(e.getTranslation());
+            System.out.println(e.getTranslation());
+        }
+        return name.get(0);
+    }
+
 }
