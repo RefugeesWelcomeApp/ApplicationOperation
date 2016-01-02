@@ -22,7 +22,7 @@
         for (int j = 0; j<i;j++){
     %>
     <td>
-        <% if (shopCatID.get(j) > (shopCatName.size()-1)) { %>
+        <% if (shopCatID.get(j) > (shopCatName.size())) { %>
         Error: bad product id in database: <%=shopCatID.get(j)%>
         <% } else  { %>
         <%=shopCatName.get(shopCatID.get(j)-1)%>
