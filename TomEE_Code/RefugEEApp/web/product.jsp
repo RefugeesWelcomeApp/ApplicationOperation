@@ -26,7 +26,7 @@
         <% if (shopCatID.get(j) > (shopCatName.size())) { %>
         Error: bad product id in database: <%=shopCatID.get(j)%>
         <% } else  { %>
-        <%=shopCatName.get(shopCatID.get(j)-1)+ " - " + OSM.get(j) %>
+        <%=shopCatName.get(shopCatID.get(j)-1)+ " - " + OSM.get(shopCatID.get(j)-1) %>
         <% } %>
         <br>
     </td>
